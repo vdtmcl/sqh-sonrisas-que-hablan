@@ -1,10 +1,8 @@
-import { lazy, Suspense } from "react";
 import { AudioLines, BrainCircuit, Map, Mic2, Network, Radio, Stethoscope, Youtube } from "lucide-react";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
 import { Button } from "../components/ui/Button";
 import { CloudinaryReadyMedia } from "../components/media/CloudinaryReadyMedia";
-import { EpisodeMedia } from "../components/media/EpisodeMedia";
 import { VideoFrame } from "../components/media/VideoFrame";
 import { ContactForm } from "../components/forms/ContactForm";
 import { ScrollMotion } from "../components/motion/ScrollMotion";
@@ -12,8 +10,6 @@ import { MapSection } from "../components/sections/MapSection";
 import { media } from "../data/media";
 import { siteContent } from "../data/content";
 import { episodes } from "../data/episodes";
-
-const ConversationField = lazy(() => import("../components/three/ConversationField").then((module) => ({ default: module.ConversationField })));
 
 export function Home() {
   return (
@@ -37,38 +33,48 @@ export function Home() {
 
 function Hero() {
   return (
-    <section id="inicio" className="relative min-h-screen pt-24">
+    <section id="inicio" className="relative min-h-screen pt-20">
       <div className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,#FF5F66,#174EFF)]" />
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-14 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-20">
+      <div className="mx-auto grid min-h-[calc(100vh-5rem)] max-w-7xl items-center gap-8 px-5 py-8 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-10">
         <div className="relative z-10 reveal">
-          <p className="text-sm font-black uppercase tracking-[0.32em] text-ri-blue">{siteContent.hero.eyebrow}</p>
-          <h1 className="mt-6 max-w-4xl font-serif text-[clamp(4rem,11vw,9.5rem)] leading-[0.84]">
+          <img src="/sqh-logo.png" alt="SQH Podcast" className="h-16 w-auto rounded-xl bg-ri-ink p-2 md:h-20" />
+          <p className="mt-6 text-xs font-black uppercase tracking-[0.28em] text-ri-blue md:text-sm">{siteContent.hero.eyebrow}</p>
+          <h1 className="mt-4 max-w-3xl font-sans text-[clamp(2.8rem,6.6vw,6.4rem)] font-black leading-[0.92] tracking-[-0.04em]">
             SQH <span className="text-ri-red">|</span><br /> Sonrisas que Hablan
           </h1>
-          <p className="mt-8 max-w-2xl text-2xl font-bold leading-snug text-ri-ink/85">{siteContent.hero.lead}</p>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-ri-ink/65">{siteContent.hero.body}</p>
-          <p className="mt-6 max-w-xl border-l-4 border-ri-blue pl-5 text-sm font-bold uppercase tracking-[0.12em] text-ri-ink/70">
+          <p className="mt-5 max-w-2xl text-xl font-bold leading-snug text-ri-ink/85 md:text-2xl">{siteContent.hero.lead}</p>
+          <p className="mt-4 max-w-2xl text-base leading-7 text-ri-ink/65 md:text-lg">{siteContent.hero.body}</p>
+          <p className="mt-5 max-w-xl border-l-4 border-ri-blue pl-5 text-xs font-bold uppercase tracking-[0.1em] text-ri-ink/70 md:text-sm">
             {siteContent.hero.signature}
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-6 flex flex-wrap items-center gap-3">
             <Button href="#temporada">Ver temporada 1</Button>
             <Button href="#contacto" variant="secondary">Proponer invitado</Button>
           </div>
-          <p className="mt-5 text-sm text-ri-ink/50">{siteContent.hero.microcopy}</p>
+          <p className="mt-4 text-sm text-ri-ink/50">{siteContent.hero.microcopy}</p>
         </div>
-        <div className="hero-media reveal relative min-h-[560px]">
-          <div className="absolute left-0 top-10 h-52 w-52 rounded-full border border-ri-red/40" />
-          <div className="absolute right-0 top-0 z-20 h-64 w-72 rounded-[2rem] border border-white/50 bg-white/80 p-4 shadow-editorial backdrop-blur">
-            <div className="audio-line h-full rounded-[1.5rem] opacity-70" />
+        <div className="hero-media reveal relative">
+          <div className="absolute -left-6 -top-6 h-28 w-28 rounded-full border border-ri-red/40" />
+          <div className="absolute -right-5 -top-5 z-20 h-32 w-44 rounded-[1.25rem] border border-ri-ink/10 bg-white/80 p-3 shadow-editorial backdrop-blur">
+            <div className="audio-line h-full rounded-2xl opacity-70" />
           </div>
-          <div className="absolute bottom-10 left-0 z-10 h-[460px] w-[78%] overflow-hidden rounded-[2.4rem] shadow-editorial">
-            <CloudinaryReadyMedia asset={media.hero} priority className="h-full w-full object-cover" />
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-ri-ink/10 bg-ri-ink p-3 shadow-editorial">
+            <div className="relative aspect-video overflow-hidden rounded-[1.25rem] bg-black">
+              <CloudinaryReadyMedia asset={media.hero} priority className="h-full w-full object-cover opacity-70" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4 text-white md:bottom-8 md:left-8 md:right-8">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[0.28em] text-white/65">Video 16:9</p>
+                  <p className="mt-2 max-w-sm text-xl font-black md:text-2xl">Espacio reservado para trailer o capitulo destacado.</p>
+                </div>
+                <span className="hidden rounded-full bg-white px-4 py-2 text-sm font-black text-ri-ink md:inline-flex">Pronto</span>
+              </div>
+            </div>
           </div>
-          <div className="absolute bottom-0 right-0 z-20 h-[340px] w-[62%] overflow-hidden rounded-[2rem] border-[10px] border-white bg-ri-mist shadow-editorial">
-            <Suspense fallback={<div className="h-full w-full editorial-grid" />}>
-              <ConversationField />
-            </Suspense>
-            <div className="absolute inset-0 editorial-grid opacity-30 lg:hidden" />
+          <div className="mt-4 grid grid-cols-3 gap-3 text-xs font-bold uppercase tracking-[0.16em] text-ri-ink/55">
+            <span className="border-t border-ri-red pt-3">Salud</span>
+            <span className="border-t border-ri-blue pt-3">Tecnologia</span>
+            <span className="border-t border-ri-ink pt-3">Conversacion</span>
           </div>
         </div>
       </div>
@@ -125,7 +131,7 @@ function Format() {
 
 function Season() {
   return (
-    <section id="temporada" className="season-pin section min-h-screen bg-white">
+    <section id="temporada" className="section bg-white">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="reveal grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
@@ -137,18 +143,26 @@ function Season() {
             salud periodontal, cirugía avanzada y promesas clínicas que hoy requieren más criterio que marketing.
           </p>
         </div>
-        <div className="season-track mt-14 flex w-[2100px] gap-6 pb-8">
-          {episodes.map((episode, index) => (
-            <article key={episode.number} className={`reveal grid w-[330px] shrink-0 content-between rounded-[2rem] border border-ri-ink/10 bg-white p-5 shadow-editorial ${index % 2 ? "mt-16" : ""}`}>
-              <EpisodeMedia episodeNumber={episode.number} />
-              <div className="mt-6">
+        <div className="mt-14 grid gap-8 lg:grid-cols-2">
+          {episodes.map((episode) => (
+            <article key={episode.number} className="reveal overflow-hidden rounded-[1.75rem] border border-ri-ink/10 bg-white shadow-editorial">
+              <VideoFrame eyebrow={`Capitulo ${episode.number}`} label={episode.title} />
+              <div className="p-6 md:p-8">
                 <p className="font-black text-ri-red">Capítulo {episode.number}</p>
                 <h3 className="mt-2 text-2xl font-black leading-tight">{episode.title}</h3>
                 <p className="mt-3 text-sm font-bold text-ri-blue">{episode.subtitle}</p>
-                <p className="mt-4 text-ri-ink/65">{episode.description}</p>
-                <p className="mt-5 border-l-2 border-ri-red pl-4 font-bold">{episode.idea}</p>
-                <p className="mt-4 text-sm text-ri-ink/55">{episode.guest}</p>
-                <Button href="#redes" variant="quiet" className="mt-5 px-0">Ver capítulo</Button>
+                <details className="group mt-6">
+                  <summary className="inline-flex cursor-pointer list-none rounded-full border border-ri-ink/15 px-5 py-3 text-sm font-black transition hover:-translate-y-1 hover:border-ri-blue hover:text-ri-blue">
+                    <span className="group-open:hidden">Ver mas</span>
+                    <span className="hidden group-open:inline">Ver menos</span>
+                  </summary>
+                  <div className="pt-5">
+                    <p className="text-ri-ink/65">{episode.description}</p>
+                    <p className="mt-5 border-l-2 border-ri-red pl-4 font-bold">{episode.idea}</p>
+                    <p className="mt-4 text-sm text-ri-ink/55">{episode.guest}</p>
+                    <p className="mt-3 text-xs font-bold uppercase tracking-[0.18em] text-ri-ink/40">{episode.embed}</p>
+                  </div>
+                </details>
               </div>
             </article>
           ))}

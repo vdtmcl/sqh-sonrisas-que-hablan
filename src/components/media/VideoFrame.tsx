@@ -9,12 +9,12 @@ type Props = {
 
 export function VideoFrame({ label, eyebrow = "Placeholder audiovisual" }: Props) {
   return (
-    <div className="group relative overflow-hidden rounded-[2rem] border border-ri-ink/10 bg-ri-ink text-white shadow-editorial">
+    <div className="group relative aspect-video overflow-hidden rounded-[1.25rem] border border-ri-ink/10 bg-ri-ink text-white shadow-editorial">
       <ResponsiveImage
         src={media.videoPoster.src}
         alt={media.videoPoster.alt}
         cloudinaryPublicId={media.videoPoster.cloudinaryPublicId}
-        className="h-full min-h-[260px] w-full object-cover opacity-70 transition duration-700 group-hover:scale-105"
+        className="h-full w-full object-cover opacity-70 transition duration-700 group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-6 p-6">

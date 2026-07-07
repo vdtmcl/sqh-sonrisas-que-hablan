@@ -13,8 +13,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ["DM Sans", "system-ui", "sans-serif"],
-        serif: ["Instrument Serif", "Georgia", "serif"]
+        sans: ["Montserrat", "system-ui", "sans-serif"],
+        serif: ["Lora", "Georgia", "serif"]
       },
       boxShadow: {
         editorial: "0 24px 80px rgba(11, 13, 18, 0.12)"
