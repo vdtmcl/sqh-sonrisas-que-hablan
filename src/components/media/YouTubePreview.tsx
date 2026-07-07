@@ -17,7 +17,7 @@ export function YouTubePreview({ url, eyebrow = "YouTube", title, large = false,
 
   if (playing) {
     return (
-      <div className={`aspect-video overflow-hidden bg-ri-ink shadow-editorial ${large ? "rounded-[1.25rem]" : "rounded-t-[1.5rem]"}`}>
+      <div className={`aspect-video overflow-hidden bg-ri-ink ${large ? "rounded-[1.25rem]" : "rounded-t-[1.5rem] shadow-editorial"}`}>
         <iframe
           title={title}
           src={embedUrl}
@@ -33,7 +33,11 @@ export function YouTubePreview({ url, eyebrow = "YouTube", title, large = false,
     <button
       type="button"
       onClick={() => setPlaying(true)}
-      className={`group relative block aspect-video w-full overflow-hidden bg-ri-ink text-left text-white shadow-editorial outline-none transition duration-500 hover:-translate-y-1 hover:shadow-[0_28px_90px_rgba(11,13,18,0.2)] focus-visible:ring-4 focus-visible:ring-ri-blue/30 ${large ? "rounded-[1.25rem]" : "rounded-t-[1.5rem]"}`}
+      className={`group relative block aspect-video w-full overflow-hidden bg-ri-ink text-left text-white outline-none focus-visible:ring-4 focus-visible:ring-ri-blue/30 ${
+        large
+          ? "rounded-[1.25rem]"
+          : "rounded-t-[1.5rem] shadow-editorial transition duration-500 hover:-translate-y-1 hover:shadow-[0_28px_90px_rgba(11,13,18,0.2)]"
+      }`}
       aria-label={`Reproducir ${title}`}
     >
       <img
@@ -42,18 +46,27 @@ export function YouTubePreview({ url, eyebrow = "YouTube", title, large = false,
         loading={large ? "eager" : "lazy"}
         decoding="async"
         fetchPriority={large ? "high" : "auto"}
-        className="h-full w-full object-cover opacity-85 transition duration-700 group-hover:scale-105"
+        className={`h-full w-full object-cover opacity-85 ${large ? "" : "transition duration-700 group-hover:scale-105"}`}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-      <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
-        <div>
-          <p className="text-[0.65rem] font-black uppercase tracking-[0.28em] text-white/70">{eyebrow}</p>
-          <p className="mt-2 max-w-sm text-lg font-black leading-tight md:text-xl">{title}</p>
-        </div>
-        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white text-ri-ink transition group-hover:bg-ri-red group-hover:text-white">
-          <Play fill="currentColor" size={18} />
+      <div className="absolute inset-0 bg-black/25" />
+      {large ? (
+        <span className="absolute left-1/2 top-1/2 grid h-24 w-24 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-ri-ink opacity-70">
+          <Play fill="currentColor" size={38} />
         </span>
-      </div>
+      ) : (
+        <>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+          <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-[0.65rem] font-black uppercase tracking-[0.28em] text-white/70">{eyebrow}</p>
+              <p className="mt-2 max-w-sm text-lg font-black leading-tight md:text-xl">{title}</p>
+            </div>
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white text-ri-ink transition group-hover:bg-ri-red group-hover:text-white">
+              <Play fill="currentColor" size={18} />
+            </span>
+          </div>
+        </>
+      )}
     </button>
   );
 }

@@ -1,4 +1,5 @@
 import { AudioLines, BrainCircuit, ChevronDown, Map, Mic2, Network, Radio, Stethoscope } from "lucide-react";
+import { useState } from "react";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
 import { Button } from "../components/ui/Button";
@@ -39,7 +40,14 @@ function Hero() {
             SQH Podcast
           </h1>
           <p className="mt-5 max-w-2xl text-xl font-semibold leading-snug text-ri-ink/85 md:text-2xl">
-            Conversaciones sobre salud, y tecnología aplicada, conducidas por Max Lizana desde Viña del Mar.
+            Conversaciones sobre salud, y tecnología aplicada,{" "}
+            <a
+              href="#max"
+              className="font-black bg-[linear-gradient(90deg,#FF5F66,#174EFF)] bg-clip-text text-transparent transition hover:opacity-75"
+            >
+              conducidas por Max Lizana
+            </a>{" "}
+            desde Viña del Mar.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <Button href="#temporada">Ver temporada 1</Button>
@@ -47,16 +55,14 @@ function Hero() {
           </div>
           <p className="mt-4 max-w-md text-sm text-ri-ink/50">{siteContent.hero.microcopy}</p>
         </div>
-        <div className="hero-media reveal relative w-full self-center">
-          <div className="rounded-[1.5rem] border border-ri-ink/10 bg-ri-ink p-2 shadow-editorial">
-            <YouTubePreview
-              url={episodes[0].embed}
-              title="Kinesiología & Odontología"
-              eyebrow="Capítulo destacado"
-              poster="/hero-podcast-cover.jpg"
-              large
-            />
-          </div>
+        <div className="reveal relative w-full self-center">
+          <YouTubePreview
+            url={episodes[0].embed}
+            title="Kinesiología & Odontología"
+            eyebrow="Capítulo destacado"
+            poster="/hero-podcast-cover.jpg"
+            large
+          />
         </div>
       </div>
     </section>
@@ -64,30 +70,31 @@ function Hero() {
 }
 
 function PodcastFaq() {
+  const [openIndex, setOpenIndex] = useState(0);
   const faqs = [
     {
       title: "¿Qué es SQH?",
-      body: "Un podcast editorial sobre salud, tecnología aplicada y conversaciones profesionales conducido por Max Lizana desde Viña del Mar."
+      body: "Un podcast editorial sobre salud, tecnología aplicada y conversaciones profesionales conducido por Max Lizana desde Viña del Mar. SQH propone una mirada amplia: conversar con especialistas, ordenar criterio clínico y acercar temas complejos a una audiencia que busca entender mejor cómo cambia la salud."
     },
     {
       title: "¿Qué mirada propone?",
-      body: "Mirar la salud desde más de una especialidad: criterio clínico, experiencia del paciente, colaboración y tecnología con propósito."
+      body: "Mirar la salud desde más de una especialidad: criterio clínico, experiencia del paciente, colaboración y tecnología con propósito. La conversación no se queda en una técnica aislada; cruza diagnóstico, bienestar, decisiones profesionales, expectativas reales y el impacto humano de cada tratamiento."
     },
     {
       title: "¿Por qué salud oral?",
-      body: "Porque la salud oral es un vínculo concreto con otras áreas de la salud: postura, inflamación, estética, función, rehabilitación y calidad de vida."
+      body: "Porque la salud oral es un vínculo concreto con otras áreas de la salud: postura, inflamación, estética, función, rehabilitación y calidad de vida. Desde la boca se abren conversaciones con kinesiología, periodoncia, cirugía, tecnología digital y bienestar integral del paciente."
     },
     {
       title: "¿Dónde converge la conversación?",
-      body: "En el bienestar y la salud del paciente: mejores decisiones clínicas, experiencia profesional y uso responsable de tecnología."
+      body: "En el bienestar y la salud del paciente: mejores decisiones clínicas, experiencia profesional y uso responsable de tecnología. SQH busca mostrar cómo la expertiz, la planificación y la colaboración interdisciplinaria permiten llegar a tratamientos más coherentes, seguros y comprensibles."
     },
     {
       title: "¿Qué lugar ocupa la tecnología?",
-      body: "La tecnología importa cuando mejora diagnóstico, planificación, precisión y seguimiento. No como promesa, sino como criterio aplicado."
+      body: "La tecnología importa cuando mejora diagnóstico, planificación, precisión y seguimiento. No como promesa vacía, sino como criterio aplicado. En SQH se habla de innovación desde su utilidad real: cuándo ayuda, cuándo exige prudencia y cómo mejora la experiencia clínica."
     },
     {
       title: "¿Cuál es el respaldo profesional?",
-      body: "SQH nace desde el ecosistema de Red Implantología, pero su foco es editorial: conversaciones útiles, no promoción clínica."
+      body: "SQH nace desde el ecosistema de Red Implantología, pero su foco es editorial: conversaciones útiles, no promoción clínica. Ese respaldo permite hablar desde la experiencia real de casos, equipos y tecnología, manteniendo al podcast como protagonista del relato."
     }
   ];
 
@@ -105,16 +112,29 @@ function PodcastFaq() {
           {faqs.map((item, index) => {
             const icons = [Stethoscope, BrainCircuit, Mic2, Map, Network, AudioLines];
             const Icon = icons[index];
+            const isOpen = openIndex === index;
             return (
-              <details key={item.title} className="group rounded-2xl border border-white/10 bg-white/[0.04] transition duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.07] open:bg-white open:text-ri-ink">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-4">
+              <div
+                key={item.title}
+                className={`rounded-2xl border transition duration-300 ${
+                  isOpen
+                    ? "border-white bg-white text-ri-ink"
+                    : "border-white/10 bg-white/[0.04] text-white hover:border-white/25 hover:bg-white/[0.08]"
+                }`}
+              >
+                <button
+                  type="button"
+                  aria-expanded={isOpen}
+                  onClick={() => setOpenIndex(isOpen ? -1 : index)}
+                  className="flex w-full cursor-pointer items-center justify-between gap-4 p-4 text-left"
+                >
                   <span className="flex items-center gap-3 text-base font-black md:text-lg">
                     <Icon className="text-ri-red" size={20} /> {item.title}
                   </span>
-                  <ChevronDown className="shrink-0 transition group-open:rotate-180" size={18} />
-                </summary>
-                <p className="px-4 pb-4 text-sm leading-6 opacity-70 md:text-base">{item.body}</p>
-              </details>
+                  <ChevronDown className={`shrink-0 transition ${isOpen ? "rotate-180" : ""}`} size={18} />
+                </button>
+                {isOpen ? <p className="px-4 pb-5 text-base leading-7 opacity-75 md:text-lg md:leading-8">{item.body}</p> : null}
+              </div>
             );
           })}
         </div>
