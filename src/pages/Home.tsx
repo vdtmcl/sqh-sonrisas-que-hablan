@@ -87,11 +87,11 @@ function PodcastFaq() {
 
   return (
     <section id="podcast" className="section bg-ri-ink text-white">
-      <div className="mx-auto grid max-w-[92rem] gap-12 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-10">
+      <div className="mx-auto grid max-w-[92rem] gap-10 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-10">
         <div className="reveal">
           <p className="text-sm font-black uppercase tracking-[0.3em] text-ri-red">El podcast / El formato</p>
-          <h2 className="mt-5 max-w-3xl font-serif text-5xl leading-none md:text-7xl">Una conversación profesional, interdisciplinaria y directa.</h2>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">
+          <h2 className="mt-5 max-w-3xl font-serif text-4xl leading-none md:text-6xl">Una conversación profesional, interdisciplinaria y directa.</h2>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-white/70 md:text-lg">
             SQH reúne a profesionales y especialistas para conversar sobre salud, tecnología aplicada, experiencia del paciente y colaboración entre disciplinas.
           </p>
         </div>
@@ -100,14 +100,14 @@ function PodcastFaq() {
             const icons = [Stethoscope, BrainCircuit, Mic2, Map, Network, AudioLines];
             const Icon = icons[index];
             return (
-              <details key={item.title} className="group rounded-2xl border border-white/10 bg-white/[0.04] p-4 open:bg-white open:text-ri-ink">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+              <details key={item.title} className="group rounded-2xl border border-white/10 bg-white/[0.04] transition duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.07] open:bg-white open:text-ri-ink">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-4">
                   <span className="flex items-center gap-3 text-base font-black md:text-lg">
                     <Icon className="text-ri-red" size={20} /> {item.title}
                   </span>
                   <ChevronDown className="shrink-0 transition group-open:rotate-180" size={18} />
                 </summary>
-                <p className="mt-3 max-w-2xl text-sm leading-6 opacity-70 md:text-base">{item.body}</p>
+                <p className="px-4 pb-4 text-sm leading-6 opacity-70 md:text-base">{item.body}</p>
               </details>
             );
           })}
@@ -120,7 +120,7 @@ function PodcastFaq() {
 function Season() {
   return (
     <section id="temporada" className="section bg-white">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+      <div className="mx-auto max-w-[92rem] px-5 lg:px-10">
         <div className="reveal mx-auto max-w-4xl text-center">
           <p className="text-xs font-black uppercase tracking-[0.3em] text-ri-blue md:text-sm">Temporada inaugural</p>
           <h2 className="mt-4 font-serif text-4xl leading-none md:text-6xl">Temporada 1</h2>
@@ -129,30 +129,31 @@ function Season() {
             tecnología, estética, cirugía y criterio clínico.
           </p>
         </div>
-        <div className="mt-14 grid gap-7 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {episodes.map((episode) => (
-            <article key={episode.number} className="reveal overflow-hidden rounded-[1.75rem] border border-ri-ink/10 bg-white shadow-editorial">
+            <article key={episode.number} className="reveal overflow-hidden rounded-[1.5rem] border border-ri-ink/10 bg-white shadow-editorial transition duration-500 hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(11,13,18,0.16)]">
               <YouTubePreview url={episode.embed} eyebrow={`Capítulo ${episode.number}`} title={episode.title} />
-              <div className="p-5 md:p-6">
+              <div className="p-4 md:p-5">
                 <p className="font-black text-ri-red">Capítulo {episode.number}</p>
-                <h3 className="mt-2 text-xl font-black leading-tight md:text-2xl">{episode.title}</h3>
+                <h3 className="mt-2 text-lg font-black leading-tight md:text-xl">{episode.title}</h3>
                 <p className="mt-3 text-sm font-bold text-ri-blue">{episode.subtitle}</p>
-                <details className="group mt-6">
-                  <summary className="inline-flex cursor-pointer list-none rounded-full border border-ri-ink/15 px-5 py-3 text-sm font-black transition hover:-translate-y-1 hover:border-ri-blue hover:text-ri-blue">
+                <details className="group mt-4 rounded-2xl border border-ri-ink/10 transition duration-300 hover:border-ri-blue/40">
+                  <summary className="flex w-full cursor-pointer list-none items-center justify-between rounded-2xl px-4 py-3 text-sm font-black transition hover:text-ri-blue">
                     <span className="group-open:hidden">Ver más</span>
                     <span className="hidden group-open:inline">Ver menos</span>
+                    <ChevronDown className="shrink-0 transition group-open:rotate-180" size={16} />
                   </summary>
-                  <div className="pt-5">
-                    <p className="text-ri-ink/65">{episode.description}</p>
-                    <p className="mt-5 border-l-2 border-ri-red pl-4 font-bold">{episode.idea}</p>
-                    <p className="mt-4 text-sm text-ri-ink/55">{episode.guest}</p>
+                  <div className="px-4 pb-4">
+                    <p className="text-sm leading-6 text-ri-ink/65">{episode.description}</p>
+                    <p className="mt-4 border-l-2 border-ri-red pl-4 text-sm font-bold">{episode.idea}</p>
+                    <p className="mt-3 text-sm text-ri-ink/55">{episode.guest}</p>
                     <a
                       href={episode.embed}
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-5 inline-flex rounded-full bg-ri-ink px-5 py-3 text-sm font-black text-white transition hover:-translate-y-1 hover:bg-ri-blue"
+                      className="mt-4 inline-flex rounded-full bg-ri-ink px-5 py-3 text-sm font-black text-white transition hover:-translate-y-1 hover:bg-ri-blue"
                     >
-                      Ver capítulo
+                      Abrir en YouTube
                     </a>
                   </div>
                 </details>
