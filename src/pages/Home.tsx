@@ -35,25 +35,21 @@ function Hero() {
   return (
     <section id="inicio" className="relative min-h-screen pt-20">
       <div className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,#FF5F66,#174EFF)]" />
-      <div className="mx-auto grid min-h-[calc(100vh-5rem)] max-w-7xl items-center gap-8 px-5 py-8 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-10">
+      <div className="mx-auto grid min-h-[calc(100vh-5rem)] max-w-7xl items-center gap-10 px-5 py-8 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:py-10">
         <div className="relative z-10 reveal">
-          <img src="/sqh-logo.png" alt="SQH Podcast" className="h-16 w-auto rounded-xl bg-ri-ink p-2 md:h-20" />
+          <img src="/sqh-logo.png" alt="SQH Podcast" className="h-14 w-auto rounded-xl bg-ri-ink p-2 md:h-16" />
           <p className="mt-6 text-xs font-black uppercase tracking-[0.28em] text-ri-blue md:text-sm">{siteContent.hero.eyebrow}</p>
-          <h1 className="mt-4 max-w-3xl font-sans text-[clamp(2.8rem,6.6vw,6.4rem)] font-black leading-[0.92] tracking-[-0.04em]">
+          <h1 className="mt-4 max-w-3xl font-sans text-[clamp(2.8rem,5.8vw,5.6rem)] font-black leading-[0.92] tracking-[-0.04em]">
             SQH <span className="text-ri-red">|</span><br /> Sonrisas que Hablan
           </h1>
-          <p className="mt-5 max-w-2xl text-xl font-bold leading-snug text-ri-ink/85 md:text-2xl">{siteContent.hero.lead}</p>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-ri-ink/65 md:text-lg">{siteContent.hero.body}</p>
-          <p className="mt-5 max-w-xl border-l-4 border-ri-blue pl-5 text-xs font-bold uppercase tracking-[0.1em] text-ri-ink/70 md:text-sm">
-            {siteContent.hero.signature}
-          </p>
+          <p className="mt-5 max-w-xl text-xl font-bold leading-snug text-ri-ink/85 md:text-2xl">{siteContent.hero.lead}</p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <Button href="#temporada">Ver temporada 1</Button>
             <Button href="#contacto" variant="secondary">Proponer invitado</Button>
           </div>
-          <p className="mt-4 text-sm text-ri-ink/50">{siteContent.hero.microcopy}</p>
+          <p className="mt-4 max-w-md text-sm text-ri-ink/50">{siteContent.hero.microcopy}</p>
         </div>
-        <div className="hero-media reveal relative">
+        <div className="hero-media reveal relative w-full self-center">
           <div className="absolute -left-6 -top-6 h-28 w-28 rounded-full border border-ri-red/40" />
           <div className="absolute -right-5 -top-5 z-20 h-32 w-44 rounded-[1.25rem] border border-ri-ink/10 bg-white/80 p-3 shadow-editorial backdrop-blur">
             <div className="audio-line h-full rounded-2xl opacity-70" />
@@ -65,7 +61,7 @@ function Hero() {
               <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4 text-white md:bottom-8 md:left-8 md:right-8">
                 <div>
                   <p className="text-xs font-black uppercase tracking-[0.28em] text-white/65">Video 16:9</p>
-                  <p className="mt-2 max-w-sm text-xl font-black md:text-2xl">Espacio reservado para trailer o capitulo destacado.</p>
+                  <p className="mt-2 max-w-sm text-xl font-black md:text-2xl">Espacio reservado para tráiler o capítulo destacado.</p>
                 </div>
                 <span className="hidden rounded-full bg-white px-4 py-2 text-sm font-black text-ri-ink md:inline-flex">Pronto</span>
               </div>
@@ -73,8 +69,8 @@ function Hero() {
           </div>
           <div className="mt-4 grid grid-cols-3 gap-3 text-xs font-bold uppercase tracking-[0.16em] text-ri-ink/55">
             <span className="border-t border-ri-red pt-3">Salud</span>
-            <span className="border-t border-ri-blue pt-3">Tecnologia</span>
-            <span className="border-t border-ri-ink pt-3">Conversacion</span>
+            <span className="border-t border-ri-blue pt-3">Tecnología</span>
+            <span className="border-t border-ri-ink pt-3">Conversación</span>
           </div>
         </div>
       </div>
@@ -90,11 +86,19 @@ function PodcastIntro() {
           <p className="text-sm font-black uppercase tracking-[0.3em] text-ri-red">El podcast</p>
           <h2 className="mt-5 font-serif text-5xl leading-none md:text-7xl">Una conversación donde la salud se mira desde más de una especialidad</h2>
         </div>
-        <div className="reveal space-y-6 text-xl leading-9 text-ri-ink/70">
-          <p>SQH nace como un espacio editorial para abrir conversaciones entre profesionales de la salud que trabajan desde especialidades distintas, pero comparten una pregunta: cómo mejorar la vida de las personas con mejores decisiones clínicas, mejores tecnologías y una comprensión más integral del paciente.</p>
-          <p>El podcast propone un diálogo serio, cercano y argumentado entre experiencia, evidencia, tecnología aplicada y mirada humana. No se trata de simplificar la salud, sino de traducir su complejidad con criterio profesional.</p>
-          <blockquote className="border-l-4 border-ri-blue pl-6 font-serif text-4xl leading-tight text-ri-ink">
-            Más que hablar de dientes, SQH usa la salud oral como punto de entrada para conversar sobre bienestar, función, autoestima, tecnología y calidad de vida.
+        <div className="reveal space-y-5 text-lg leading-8 text-ri-ink/70">
+          <p>
+            SQH reúne a profesionales, especialistas y líderes del ecosistema sanitario para conversar con profundidad
+            sobre los cambios que están transformando la salud: experiencia del paciente, innovación clínica,
+            tecnología digital y colaboración entre disciplinas.
+          </p>
+          <p className="border-l-4 border-ri-blue pl-5 text-base font-bold uppercase tracking-[0.1em] text-ri-ink/70">
+            Conduce: Max Lizana, cirujano dentista, especialista en Implantología Oral y fundador/director clínico de
+            Red Implantología.
+          </p>
+          <blockquote className="border-l-4 border-ri-red pl-6 font-serif text-3xl leading-tight text-ri-ink md:text-4xl">
+            Más que hablar de dientes, SQH usa la salud oral como punto de entrada para conversar sobre bienestar,
+            función, tecnología y calidad de vida.
           </blockquote>
         </div>
       </div>
@@ -110,7 +114,7 @@ function Format() {
         <div className="reveal max-w-3xl">
           <p className="text-sm font-black uppercase tracking-[0.3em] text-ri-red">El formato</p>
           <h2 className="mt-5 font-serif text-6xl leading-none md:text-8xl">Qué propone SQH</h2>
-          <p className="mt-6 text-xl leading-8 text-white/70">Una plataforma diseñada para conectar ideas, especialidades y trayectorias. Cada capítulo parte de un tema clínico concreto y lo expande hacia preguntas mayores sobre salud, innovación y experiencia de paciente.</p>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">Conversaciones que conectan especialidades, tecnología aplicada y experiencia clínica sin perder mirada humana.</p>
         </div>
         <div className="mt-16 grid gap-px overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 md:grid-cols-2">
           {siteContent.proposal.map(([title, text], index) => {
@@ -119,7 +123,7 @@ function Format() {
               <article key={title} className="reveal min-h-72 bg-ri-ink p-8 transition hover:bg-white hover:text-ri-ink">
                 <Icon className="text-ri-red" size={30} />
                 <h3 className="mt-10 text-3xl font-black">{title}</h3>
-                <p className="mt-5 text-lg leading-8 opacity-70">{text}</p>
+                <p className="mt-5 text-base leading-7 opacity-70">{text}</p>
               </article>
             );
           })}
@@ -138,9 +142,9 @@ function Season() {
             <p className="text-sm font-black uppercase tracking-[0.3em] text-ri-blue">Temporada inaugural</p>
             <h2 className="mt-5 font-serif text-6xl leading-none md:text-8xl">Temporada 1</h2>
           </div>
-          <p className="text-2xl font-bold leading-snug text-ri-ink/75">
-            La primera temporada abre conversaciones sobre dolor, postura, ortodoncia en adultos, estética basada en evidencia,
-            salud periodontal, cirugía avanzada y promesas clínicas que hoy requieren más criterio que marketing.
+          <p className="text-xl font-bold leading-snug text-ri-ink/75 md:text-2xl">
+            Seis conversaciones para abrir el punto de partida interdisciplinario de SQH: cuerpo, salud oral,
+            tecnología, estética, cirugía y criterio clínico.
           </p>
         </div>
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
@@ -187,10 +191,10 @@ function Max() {
         <div className="reveal">
           <p className="text-sm font-black uppercase tracking-[0.3em] text-ri-red">Conduce</p>
           <h2 className="mt-5 font-serif text-6xl leading-none md:text-8xl">Max Lizana</h2>
-          <p className="mt-6 text-2xl font-bold text-ri-ink/75">Una voz clínica con trayectoria, experiencia digital y mirada interdisciplinaria.</p>
+          <p className="mt-6 text-2xl font-bold text-ri-ink/75">Trayectoria clínica, experiencia digital y mirada interdisciplinaria.</p>
           <div className="mt-6 space-y-5 text-lg leading-8 text-ri-ink/70">
-            <p>Max Lizana es cirujano dentista de la Universidad de Valparaíso, especialista en Implantología Oral de la Universidad de Chile, miembro de la Sociedad de Implantología Oral de Chile y fundador/director clínico de Red Implantología en Viña del Mar.</p>
-            <p>En SQH, Max conduce conversaciones con especialistas y líderes de la salud desde una posición concreta: la de un profesional que ha visto cómo la tecnología transforma la práctica clínica, y cómo la experiencia, el criterio y la mirada humana siguen siendo irremplazables.</p>
+            <p>Max Lizana conduce SQH desde la práctica clínica real: implantología, rehabilitación oral y tecnología aplicada a casos complejos.</p>
+            <p>Su rol es ordenar la conversación, conectar criterios y abrir preguntas útiles para profesionales y audiencias interesadas en salud.</p>
           </div>
           <ul className="mt-8 grid gap-3">
             {siteContent.maxCredentials.map((credential) => (
@@ -212,8 +216,8 @@ function RedImplantologia() {
         <div className="reveal">
           <p className="text-sm font-black uppercase tracking-[0.3em] text-ri-blue">Respaldo profesional</p>
           <h2 className="mt-5 font-serif text-5xl leading-none md:text-7xl">Un podcast respaldado por experiencia clínica real</h2>
-          <p className="mt-6 text-xl leading-9 text-ri-ink/70">SQH nace desde el ecosistema profesional de Red Implantología, una clínica especializada en Viña del Mar con foco en implantología, rehabilitación oral, trabajo multidisciplinario y tecnología aplicada.</p>
-          <p className="mt-5 text-lg leading-8 text-ri-ink/65">Ese entorno permite que el podcast no sea solo una conversación conceptual, sino una extensión editorial de una práctica clínica activa donde planificación, innovación y colaboración forman parte del trabajo cotidiano.</p>
+          <p className="mt-6 text-xl leading-9 text-ri-ink/70">Red Implantología entrega contexto profesional: trabajo multidisciplinario, tecnología aplicada y experiencia clínica desde Viña del Mar.</p>
+          <p className="mt-5 text-lg leading-8 text-ri-ink/65">SQH toma ese respaldo y lo transforma en contenido editorial, no en una vitrina comercial.</p>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {["Equipo multidisciplinario", "Tecnología aplicada", "Trayectoria regional"].map((item) => (
               <div key={item} className="border-l-2 border-ri-red pl-4 font-black">{item}</div>
@@ -235,7 +239,7 @@ function Invitation() {
         <div className="reveal max-w-4xl">
           <p className="text-sm font-black uppercase tracking-[0.3em] text-ri-red">Invitación a profesionales</p>
           <h2 className="mt-5 font-serif text-6xl leading-none md:text-8xl">Una invitación a conversar con profundidad</h2>
-          <p className="mt-6 text-xl leading-9 text-ri-ink/70">SQH convoca a especialistas, centros médicos, investigadores, docentes, líderes clínicos y equipos de comunicaciones que quieran aportar una mirada seria sobre el futuro de la salud.</p>
+          <p className="mt-6 max-w-3xl text-xl leading-9 text-ri-ink/70">Un espacio para especialistas, centros médicos, investigadores, docentes y líderes clínicos que quieran conversar con profundidad.</p>
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {["Visibilidad con contexto", "Diálogo entre pares", "Plataforma editorial", "Puente entre salud y audiencia"].map((item, index) => (
@@ -263,7 +267,7 @@ function Networks() {
             <p className="text-sm font-black uppercase tracking-[0.3em] text-ri-blue">Contenido audiovisual</p>
             <h2 className="mt-5 font-serif text-6xl leading-none md:text-8xl">Capítulos, clips y apariciones</h2>
           </div>
-          <p className="max-w-xl text-lg leading-8 text-ri-ink/70">La conversación continúa más allá del estudio: episodios completos, reels, clips destacados y piezas diseñadas para ampliar el alcance de las ideas.</p>
+          <p className="max-w-xl text-lg leading-8 text-ri-ink/70">Episodios completos, clips breves y piezas seleccionadas para extender las ideas fuera del estudio.</p>
         </div>
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           <VideoFrame eyebrow="YouTube" label="Capítulos completos en formato audiovisual." />
@@ -282,7 +286,7 @@ function Contact() {
         <div className="reveal">
           <p className="text-sm font-black uppercase tracking-[0.3em] text-ri-red">Contacto</p>
           <h2 className="mt-5 font-serif text-6xl leading-none md:text-8xl">Salud, tecnología y conversaciones que importan</h2>
-          <p className="mt-6 text-xl leading-9 text-ri-ink/70">Para proponer invitados, coordinar participaciones o solicitar información sobre el formato SQH, completa el formulario.</p>
+          <p className="mt-6 text-xl leading-9 text-ri-ink/70">Propón invitados, coordina participaciones o solicita información sobre el formato SQH.</p>
           <div className="mt-8 flex gap-4 text-ri-blue">
             <Radio /><Network /><Youtube /><AudioLines />
           </div>

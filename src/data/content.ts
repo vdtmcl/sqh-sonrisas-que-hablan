@@ -10,10 +10,10 @@ export const siteContent = {
     microcopy: "Un formato audiovisual pensado para conversaciones profesionales, humanas y técnicamente relevantes."
   },
   proposal: [
-    ["Salud con mirada integral", "La boca, el cuerpo, la mente, la función, la estética y la calidad de vida se cruzan constantemente en la experiencia real de los pacientes."],
-    ["Tecnología con criterio clínico", "Innovación sin promesas vacías: tecnología aplicada, planificación, evidencia y responsabilidad profesional."],
-    ["Conversaciones entre referentes", "Profesionales con trayectoria construyen diálogos útiles, profundos y comprensibles desde distintas especialidades."],
-    ["Desde Viña del Mar hacia una conversación país", "El formato nace en región, pero conversa con los grandes temas de la salud contemporánea."]
+    ["Salud con mirada integral", "La salud oral como punto de entrada hacia bienestar, función y calidad de vida."],
+    ["Tecnología con criterio clínico", "Innovación aplicada a mejores decisiones, sin promesas vacías."],
+    ["Conversaciones entre referentes", "Especialistas con trayectoria, contexto y una mirada compartida sobre salud."],
+    ["Desde Viña del Mar hacia una conversación país", "Un formato regional conectado con los grandes temas de la salud contemporánea."]
   ],
   maxCredentials: [
     "Cirujano dentista, Universidad de Valparaíso.",
