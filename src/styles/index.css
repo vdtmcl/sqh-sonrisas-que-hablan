@@ -1,0 +1,58 @@
+@import "./tokens.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "DM Sans", system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--ri-red);
+  color: white;
+}
+
+.editorial-grid {
+  background-image:
+    linear-gradient(rgba(23, 78, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 78, 255, 0.08) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+.audio-line {
+  background:
+    repeating-linear-gradient(90deg, var(--ri-blue) 0 2px, transparent 2px 18px),
+    linear-gradient(90deg, var(--ri-red), var(--ri-blue));
+  mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+}
+
+.section {
+  padding: clamp(5rem, 9vw, 9rem) 0;
+}
+
+.reveal {
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
