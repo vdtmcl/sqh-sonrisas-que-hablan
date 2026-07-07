@@ -1,4 +1,5 @@
 import { cloudinaryImage } from "../../lib/cloudinary";
+import { env } from "../../lib/env";
 
 type Props = {
   src: string;
@@ -9,7 +10,8 @@ type Props = {
 };
 
 export function ResponsiveImage({ src, alt, className = "", priority = false, cloudinaryPublicId }: Props) {
-  const imageSrc = cloudinaryImage(cloudinaryPublicId || src, priority ? 1800 : 1200);
+  const source = env.cloudinaryCloudName && cloudinaryPublicId ? cloudinaryPublicId : src;
+  const imageSrc = cloudinaryImage(source, priority ? 1800 : 1200);
 
   return (
     <img

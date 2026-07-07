@@ -6,8 +6,8 @@ export const media = {
     cloudinaryPublicId: "reemplazar/sqh/hero-studio"
   },
   max: {
-    src: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=85",
-    alt: "Retrato profesional temporal para Max Lizana.",
+    src: "/dr-max-lizana.png",
+    alt: "Dr. Max Lizana en Red Implantología.",
     cloudinaryPublicId: "reemplazar/sqh/max-lizana"
   },
   clinic: {

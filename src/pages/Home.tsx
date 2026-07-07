@@ -48,27 +48,10 @@ function Hero() {
           <p className="mt-4 max-w-md text-sm text-ri-ink/50">{siteContent.hero.microcopy}</p>
         </div>
         <div className="hero-media reveal relative w-full self-center">
-          <div className="absolute -left-6 -top-6 h-28 w-28 rounded-full border border-ri-red/40" />
-          <div className="absolute -right-5 -top-5 z-20 h-32 w-44 rounded-[1.25rem] border border-ri-ink/10 bg-white/80 p-3 shadow-editorial backdrop-blur">
-            <div className="audio-line h-full rounded-2xl opacity-70" />
-          </div>
-          <div className="relative overflow-hidden rounded-[1.75rem] border border-ri-ink/10 bg-ri-ink p-3 shadow-editorial">
-            <div className="relative aspect-video overflow-hidden rounded-[1.25rem] bg-black">
-              <CloudinaryReadyMedia asset={media.hero} priority className="h-full w-full object-cover opacity-70" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4 text-white md:bottom-8 md:left-8 md:right-8">
-                <div>
-                  <p className="text-xs font-black uppercase tracking-[0.28em] text-white/65">Video 16:9</p>
-                  <p className="mt-2 max-w-sm text-xl font-black md:text-2xl">Espacio reservado para tráiler o capítulo destacado.</p>
-                </div>
-                <span className="hidden rounded-full bg-white px-4 py-2 text-sm font-black text-ri-ink md:inline-flex">Pronto</span>
-              </div>
+          <div className="relative overflow-hidden rounded-[1.25rem] border border-ri-ink/10 bg-ri-ink p-2 shadow-editorial">
+            <div className="aspect-video overflow-hidden rounded-xl bg-black">
+              <CloudinaryReadyMedia asset={media.hero} priority className="h-full w-full object-cover opacity-80" />
             </div>
-          </div>
-          <div className="mt-4 grid grid-cols-3 gap-3 text-xs font-bold uppercase tracking-[0.16em] text-ri-ink/55">
-            <span className="border-t border-ri-red pt-3">Salud</span>
-            <span className="border-t border-ri-blue pt-3">Tecnología</span>
-            <span className="border-t border-ri-ink pt-3">Conversación</span>
           </div>
         </div>
       </div>
@@ -88,7 +71,15 @@ function PodcastFaq() {
     },
     {
       title: "¿Por qué salud oral?",
-      body: "Porque funciona como punto de entrada hacia temas más amplios: bienestar, función, autoestima, prevención y calidad de vida."
+      body: "Porque la salud oral es un vínculo concreto con otras áreas de la salud: postura, inflamación, estética, función, rehabilitación y calidad de vida."
+    },
+    {
+      title: "¿Dónde converge la conversación?",
+      body: "En el bienestar y la salud del paciente: mejores decisiones clínicas, experiencia profesional y uso responsable de tecnología."
+    },
+    {
+      title: "¿Qué lugar ocupa la tecnología?",
+      body: "La tecnología importa cuando mejora diagnóstico, planificación, precisión y seguimiento. No como promesa, sino como criterio aplicado."
     },
     {
       title: "¿Cuál es el respaldo profesional?",
@@ -105,23 +96,20 @@ function PodcastFaq() {
           <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">
             SQH reúne a profesionales y especialistas para conversar sobre salud, tecnología aplicada, experiencia del paciente y colaboración entre disciplinas.
           </p>
-          <p className="mt-5 border-l-4 border-ri-blue pl-5 text-sm font-bold uppercase tracking-[0.12em] text-white/70">
-            Conduce: Max Lizana, cirujano dentista, especialista en Implantología Oral y fundador/director clínico de Red Implantología.
-          </p>
         </div>
-        <div className="reveal grid gap-3">
+        <div className="reveal grid gap-2">
           {faqs.map((item, index) => {
-            const icons = [Stethoscope, BrainCircuit, Mic2, Map];
+            const icons = [Stethoscope, BrainCircuit, Mic2, Map, Network, AudioLines];
             const Icon = icons[index];
             return (
-              <details key={item.title} className="group rounded-[1.25rem] border border-white/10 bg-white/[0.04] p-5 open:bg-white open:text-ri-ink">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-5">
-                  <span className="flex items-center gap-4 text-xl font-black">
-                    <Icon className="text-ri-red" size={24} /> {item.title}
+              <details key={item.title} className="group rounded-2xl border border-white/10 bg-white/[0.04] p-4 open:bg-white open:text-ri-ink">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+                  <span className="flex items-center gap-3 text-base font-black md:text-lg">
+                    <Icon className="text-ri-red" size={20} /> {item.title}
                   </span>
-                  <ChevronDown className="shrink-0 transition group-open:rotate-180" size={20} />
+                  <ChevronDown className="shrink-0 transition group-open:rotate-180" size={18} />
                 </summary>
-                <p className="mt-4 max-w-2xl text-base leading-7 opacity-70">{item.body}</p>
+                <p className="mt-3 max-w-2xl text-sm leading-6 opacity-70 md:text-base">{item.body}</p>
               </details>
             );
           })}
@@ -146,21 +134,28 @@ function Season() {
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
           {episodes.map((episode) => (
             <article key={episode.number} className="reveal overflow-hidden rounded-[1.75rem] border border-ri-ink/10 bg-white shadow-editorial">
-              <VideoFrame eyebrow={`Cap?tulo ${episode.number}`} label={episode.title} />
+              <VideoFrame eyebrow={`Capítulo ${episode.number}`} label={episode.title} />
               <div className="p-6 md:p-8">
-                <p className="font-black text-ri-red">Cap?tulo {episode.number}</p>
+                <p className="font-black text-ri-red">Capítulo {episode.number}</p>
                 <h3 className="mt-2 text-2xl font-black leading-tight">{episode.title}</h3>
                 <p className="mt-3 text-sm font-bold text-ri-blue">{episode.subtitle}</p>
                 <details className="group mt-6">
                   <summary className="inline-flex cursor-pointer list-none rounded-full border border-ri-ink/15 px-5 py-3 text-sm font-black transition hover:-translate-y-1 hover:border-ri-blue hover:text-ri-blue">
-                    <span className="group-open:hidden">Ver m?s</span>
+                    <span className="group-open:hidden">Ver más</span>
                     <span className="hidden group-open:inline">Ver menos</span>
                   </summary>
                   <div className="pt-5">
                     <p className="text-ri-ink/65">{episode.description}</p>
                     <p className="mt-5 border-l-2 border-ri-red pl-4 font-bold">{episode.idea}</p>
                     <p className="mt-4 text-sm text-ri-ink/55">{episode.guest}</p>
-                    <p className="mt-3 text-xs font-bold uppercase tracking-[0.18em] text-ri-ink/40">{episode.embed}</p>
+                    <a
+                      href={episode.embed}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-5 inline-flex rounded-full bg-ri-ink px-5 py-3 text-sm font-black text-white transition hover:-translate-y-1 hover:bg-ri-blue"
+                    >
+                      Ver capítulo
+                    </a>
                   </div>
                 </details>
               </div>
