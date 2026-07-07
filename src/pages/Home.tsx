@@ -49,7 +49,13 @@ function Hero() {
         </div>
         <div className="hero-media reveal relative w-full self-center">
           <div className="rounded-[1.5rem] border border-ri-ink/10 bg-ri-ink p-2 shadow-editorial">
-            <YouTubePreview url={episodes[0].embed} title="Kinesiología & Odontología" eyebrow="Capítulo destacado" large />
+            <YouTubePreview
+              url={episodes[0].embed}
+              title="Kinesiología & Odontología"
+              eyebrow="Capítulo destacado"
+              poster="/hero-podcast-cover.jpg"
+              large
+            />
           </div>
         </div>
       </div>
