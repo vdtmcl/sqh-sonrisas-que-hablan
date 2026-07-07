@@ -1,9 +1,10 @@
-import { MapPin } from "lucide-react";
 import { env } from "../../lib/env";
-import { media } from "../../data/media";
-import { CloudinaryReadyMedia } from "../media/CloudinaryReadyMedia";
 
 export function MapSection() {
+  const mapSrc = env.googleMapsApiKey
+    ? `https://www.google.com/maps/embed/v1/place?key=${env.googleMapsApiKey}&q=Red+Implantologia,Viña+del+Mar,Chile&zoom=13`
+    : "https://www.google.com/maps?q=Red%20Implantologia%20Vi%C3%B1a%20del%20Mar%20Chile&z=13&output=embed";
+
   return (
     <section id="territorio" className="section bg-ri-mist">
       <div className="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
@@ -20,25 +21,15 @@ export function MapSection() {
         </div>
         <div className="reveal grid gap-4">
           <div className="relative min-h-[360px] overflow-hidden rounded-[1.5rem] border border-ri-ink/10 bg-white shadow-editorial transition duration-500 hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(11,13,18,0.15)]">
-            {env.googleMapsApiKey ? (
-              <iframe
-                title="Mapa de Red Implantología en Viña del Mar"
-                loading="lazy"
-                className="h-full min-h-[360px] w-full"
-                src={`https://www.google.com/maps/embed/v1/place?key=${env.googleMapsApiKey}&q=Red+Implantologia,Viña+del+Mar,Chile&zoom=13`}
-              />
-            ) : (
-              <>
-                <CloudinaryReadyMedia asset={media.city} className="h-[360px] w-full object-cover opacity-80" />
-                <div className="absolute inset-0 editorial-grid" />
-                <div className="absolute left-8 top-8 rounded-full bg-white px-4 py-2 text-sm font-bold shadow-editorial">
-                  Google Maps: Red Implantología
-                </div>
-                <div className="absolute bottom-8 left-8 flex items-center gap-3 rounded-full bg-ri-ink px-5 py-3 text-white">
-                  <MapPin size={18} /> Red Implantología, Viña del Mar
-                </div>
-              </>
-            )}
+            <iframe
+              title="Mapa de Red Implantología en Viña del Mar"
+              loading="lazy"
+              className="h-full min-h-[360px] w-full"
+              src={mapSrc}
+            />
+            <div className="pointer-events-none absolute left-5 top-5 rounded-full bg-white px-4 py-2 text-sm font-black shadow-editorial">
+              Red Implantología · Viña del Mar
+            </div>
           </div>
         </div>
       </div>
