@@ -2,13 +2,15 @@ import { navigation } from "../../data/navigation";
 
 export function Footer() {
   return (
-    <footer className="border-t border-ri-ink/10 bg-ri-ink px-5 py-12 text-white lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1.2fr]">
+    <footer className="border-t border-ri-ink/10 bg-ri-ink px-5 py-14 text-white lg:px-8">
+      <div className="mx-auto grid max-w-[92rem] gap-10 lg:grid-cols-[0.9fr_0.8fr_1.1fr] lg:items-start">
         <div>
-          <img src="/sqh-logo.png" alt="SQH Podcast" className="h-16 w-auto" />
-          <p className="mt-5 max-w-md text-white/70">
-            SQH | Sonrisas que Hablan es un podcast de conversación profesional sobre salud y tecnología aplicada,
-            conducido por Max Lizana desde Viña del Mar.
+          <img src="/sqh-logo.png" alt="SQH Podcast" className="h-28 w-auto md:h-36" />
+        </div>
+        <div>
+          <p className="text-sm font-black uppercase tracking-[0.28em] text-ri-red">SQH Podcast</p>
+          <p className="mt-5 max-w-sm text-white/70">
+            Conversaciones sobre salud y tecnología aplicada, conducidas por Max Lizana desde Viña del Mar.
           </p>
         </div>
         <div>
@@ -18,10 +20,8 @@ export function Footer() {
                 {item.label}
               </a>
             ))}
-            <a href="#redes" className="text-white/70 hover:text-white">YouTube</a>
-            <a href="#redes" className="text-white/70 hover:text-white">Instagram</a>
           </div>
-          <p className="mt-8 text-sm text-white/55">
+          <p className="mt-8 text-sm leading-6 text-white/55">
             Los contenidos de SQH tienen fines informativos y de conversación profesional. No reemplazan una evaluación
             clínica individual ni constituyen indicación médica u odontológica personalizada.
           </p>
