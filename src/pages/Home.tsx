@@ -3,7 +3,7 @@ import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
 import { Button } from "../components/ui/Button";
 import { CloudinaryReadyMedia } from "../components/media/CloudinaryReadyMedia";
-import { VideoFrame } from "../components/media/VideoFrame";
+import { YouTubePreview } from "../components/media/YouTubePreview";
 import { ContactForm } from "../components/forms/ContactForm";
 import { ScrollMotion } from "../components/motion/ScrollMotion";
 import { MapSection } from "../components/sections/MapSection";
@@ -30,7 +30,7 @@ export function Home() {
 
 function Hero() {
   return (
-    <section id="inicio" className="relative min-h-screen pt-20">
+    <section id="inicio" className="relative min-h-screen pt-32">
       <div className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,#FF5F66,#174EFF)]" />
       <div className="mx-auto grid min-h-[calc(100vh-5rem)] max-w-[92rem] items-center gap-12 px-5 py-8 lg:grid-cols-[0.92fr_1.08fr] lg:px-10 lg:py-10">
         <div className="relative z-10 reveal">
@@ -48,10 +48,8 @@ function Hero() {
           <p className="mt-4 max-w-md text-sm text-ri-ink/50">{siteContent.hero.microcopy}</p>
         </div>
         <div className="hero-media reveal relative w-full self-center">
-          <div className="relative overflow-hidden rounded-[1.25rem] border border-ri-ink/10 bg-ri-ink p-2 shadow-editorial">
-            <div className="aspect-video overflow-hidden rounded-xl bg-black">
-              <CloudinaryReadyMedia asset={media.hero} priority className="h-full w-full object-cover opacity-80" />
-            </div>
+          <div className="rounded-[1.5rem] border border-ri-ink/10 bg-ri-ink p-2 shadow-editorial">
+            <YouTubePreview url={episodes[0].embed} title="Kinesiología & Odontología" eyebrow="Capítulo destacado" large />
           </div>
         </div>
       </div>
@@ -131,13 +129,13 @@ function Season() {
             tecnología, estética, cirugía y criterio clínico.
           </p>
         </div>
-        <div className="mt-14 grid gap-8 lg:grid-cols-2">
+        <div className="mt-14 grid gap-7 md:grid-cols-2 xl:grid-cols-3">
           {episodes.map((episode) => (
             <article key={episode.number} className="reveal overflow-hidden rounded-[1.75rem] border border-ri-ink/10 bg-white shadow-editorial">
-              <VideoFrame eyebrow={`Capítulo ${episode.number}`} label={episode.title} />
-              <div className="p-6 md:p-8">
+              <YouTubePreview url={episode.embed} eyebrow={`Capítulo ${episode.number}`} title={episode.title} />
+              <div className="p-5 md:p-6">
                 <p className="font-black text-ri-red">Capítulo {episode.number}</p>
-                <h3 className="mt-2 text-2xl font-black leading-tight">{episode.title}</h3>
+                <h3 className="mt-2 text-xl font-black leading-tight md:text-2xl">{episode.title}</h3>
                 <p className="mt-3 text-sm font-bold text-ri-blue">{episode.subtitle}</p>
                 <details className="group mt-6">
                   <summary className="inline-flex cursor-pointer list-none rounded-full border border-ri-ink/15 px-5 py-3 text-sm font-black transition hover:-translate-y-1 hover:border-ri-blue hover:text-ri-blue">

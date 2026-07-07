@@ -3,9 +3,9 @@ import { navigation } from "../../data/navigation";
 export function Header() {
   return (
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-ri-ink">
-      <nav className="mx-auto flex max-w-[92rem] items-center justify-between px-5 py-3 lg:px-8">
+      <nav className="mx-auto flex max-w-[92rem] items-center justify-between px-5 py-4 lg:px-8">
         <a href="#inicio" className="flex items-center">
-          <img src="/sqh-logo.png" alt="SQH Podcast" className="h-12 w-auto md:h-14" />
+          <img src="/sqh-logo-crop.png" alt="SQH Podcast" className="h-20 w-auto md:h-24" />
         </a>
         <div className="hidden items-center gap-6 text-sm font-bold text-white/75 lg:flex">
           {navigation.map((item) => (
