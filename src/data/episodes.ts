@@ -56,7 +56,7 @@ export const episodes = [
     description:
       "Una pregunta clave para distinguir una posibilidad clínica real de una promesa comercial: indicaciones, límites, riesgos, tiempos biológicos y selección de pacientes. El episodio pone el foco en expectativas responsables, evaluación caso a caso y decisiones clínicas que no dependen solo de la rapidez del resultado.",
     idea: "La innovación en salud no se mide por lo rápido que promete, sino por lo responsable que decide.",
-    guest: "Conduce Max Lizana.",
+    guest: "Conduce Dr. Max Lizana.",
     embed: "https://youtu.be/p2D1jHQs8b8?si=inSv-3R8VbvN8Ray"
   }
 ];

@@ -10,7 +10,11 @@ export function Footer() {
         <div>
           <p className="text-sm font-black uppercase tracking-[0.28em] text-ri-red">SQH Podcast</p>
           <p className="mt-5 max-w-sm text-white/70">
-            Conversaciones sobre salud y tecnología aplicada, conducidas por Max Lizana desde Viña del Mar.
+            Conversaciones sobre salud y tecnología aplicada, conducidas por{" "}
+            <a href="#max" className="font-bold text-white underline decoration-ri-red/60 underline-offset-4">
+              Dr. Max Lizana
+            </a>{" "}
+            desde Viña del Mar.
           </p>
         </div>
         <div>

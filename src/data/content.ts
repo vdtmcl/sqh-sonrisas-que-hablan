@@ -2,11 +2,11 @@ export const siteContent = {
   hero: {
     eyebrow: "Podcast de salud y tecnología aplicada",
     title: "SQH | Sonrisas que Hablan",
-    lead: "Conversaciones de alto nivel sobre salud, criterio clínico y tecnología aplicada, conducidas por Max Lizana desde Viña del Mar.",
+    lead: "Conversaciones de alto nivel sobre salud, criterio clínico y tecnología aplicada, conducidas por Dr. Max Lizana desde Viña del Mar.",
     body:
       "SQH reúne a profesionales, especialistas y líderes del ecosistema sanitario para conversar con profundidad sobre los cambios que están transformando la salud: desde la experiencia del paciente hasta la innovación clínica, la tecnología digital y la colaboración entre disciplinas.",
     signature:
-      "Conduce: Max Lizana, cirujano dentista, especialista en Implantología Oral y fundador/director clínico de Red Implantología.",
+      "Conduce: Dr. Max Lizana, cirujano dentista, especialista en Implantología Oral y fundador/director clínico de Red Implantología.",
     microcopy: "Un formato audiovisual pensado para conversaciones profesionales, humanas y técnicamente relevantes."
   },
   proposal: [

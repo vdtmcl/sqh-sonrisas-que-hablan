@@ -44,12 +44,12 @@ function Hero() {
               href="#max"
               className="font-black bg-[linear-gradient(90deg,#FF5F66,#174EFF)] bg-clip-text text-transparent transition hover:opacity-75"
             >
-              conducidas por Max Lizana
+              conducidas por Dr. Max Lizana
             </a>{" "}
             desde Viña del Mar.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <Button href="#temporada">Ver temporada 1</Button>
+            <Button href="#podcast">¿Qué es SQH Podcast?</Button>
             <Button href="#contacto" variant="secondary">Quiero participar</Button>
           </div>
           <p className="mt-4 max-w-md text-sm text-ri-ink/50">{siteContent.hero.microcopy}</p>
@@ -73,7 +73,7 @@ function PodcastFaq() {
   const faqs = [
     {
       title: "¿Qué es SQH?",
-      body: "Un podcast editorial sobre salud, tecnología aplicada y conversaciones profesionales conducido por Max Lizana desde Viña del Mar. SQH propone una mirada amplia: conversar con especialistas, ordenar criterio clínico y acercar temas complejos a una audiencia que busca entender mejor cómo cambia la salud."
+      body: "Un podcast editorial sobre salud, tecnología aplicada y conversaciones profesionales conducido por Dr. Max Lizana desde Viña del Mar. SQH propone una mirada amplia: conversar con especialistas, ordenar criterio clínico y acercar temas complejos a una audiencia que busca entender mejor cómo cambia la salud."
     },
     {
       title: "¿Qué mirada propone?",
@@ -132,7 +132,21 @@ function PodcastFaq() {
                   </span>
                   <ChevronDown className={`shrink-0 transition ${isOpen ? "rotate-180" : ""}`} size={18} />
                 </button>
-                {isOpen ? <p className="px-4 pb-5 text-base leading-7 opacity-75 md:text-lg md:leading-8">{item.body}</p> : null}
+                {isOpen ? (
+                  <p className="px-4 pb-5 text-base leading-7 opacity-75 md:text-lg md:leading-8">
+                    {item.body.includes("Dr. Max Lizana") ? (
+                      <>
+                        Un podcast editorial sobre salud, tecnología aplicada y conversaciones profesionales conducido por{" "}
+                        <a href="#max" className="font-black text-ri-blue underline decoration-ri-red/50 underline-offset-4">
+                          Dr. Max Lizana
+                        </a>{" "}
+                        desde Viña del Mar. SQH propone una mirada amplia: conversar con especialistas, ordenar criterio clínico y acercar temas complejos a una audiencia que busca entender mejor cómo cambia la salud.
+                      </>
+                    ) : (
+                      item.body
+                    )}
+                  </p>
+                ) : null}
               </div>
             );
           })}
@@ -180,7 +194,19 @@ function Season() {
                   <div className="px-4 pb-4">
                     <p className="text-sm leading-6 text-ri-ink/65">{episode.description}</p>
                     <p className="mt-4 border-l-2 border-ri-red pl-4 text-sm font-bold">{episode.idea}</p>
-                    <p className="mt-3 text-sm text-ri-ink/55">{episode.guest}</p>
+                    <p className="mt-3 text-sm text-ri-ink/55">
+                      {episode.guest.includes("Dr. Max Lizana") ? (
+                        <>
+                          Conduce{" "}
+                          <a href="#max" className="font-bold text-ri-blue underline decoration-ri-red/40 underline-offset-4">
+                            Dr. Max Lizana
+                          </a>
+                          .
+                        </>
+                      ) : (
+                        episode.guest
+                      )}
+                    </p>
                     <a
                       href={episode.embed}
                       target="_blank"
@@ -214,13 +240,20 @@ function Max() {
         </div>
         <div className="reveal">
           <p className="text-sm font-black uppercase tracking-[0.3em] text-ri-red">Conduce</p>
-          <h2 className="mt-5 font-serif text-6xl leading-none md:text-8xl">Max Lizana</h2>
-          <p className="mt-6 text-2xl font-bold text-ri-ink/75">Trayectoria clínica, experiencia digital y mirada interdisciplinaria.</p>
-          <div className="mt-6 space-y-5 text-lg leading-8 text-ri-ink/70">
-            <p>Max Lizana conduce SQH desde la práctica clínica real: implantología, rehabilitación oral y tecnología aplicada a casos complejos.</p>
-            <p>Su rol es ordenar la conversación, conectar criterios y abrir preguntas útiles para profesionales y audiencias interesadas en salud.</p>
+          <h2 className="mt-5 font-serif text-6xl leading-none md:text-8xl">Dr. Max Lizana</h2>
+          <p className="mt-5 text-2xl font-bold text-ri-ink/75">Trayectoria clínica, experiencia digital y mirada interdisciplinaria.</p>
+          <div className="mt-5 flex flex-wrap items-center gap-4">
+            <a href="https://redimplantologia.cl" target="_blank" rel="noreferrer" className="inline-flex h-12 items-center rounded-2xl border border-ri-ink/10 bg-white px-4 transition hover:-translate-y-0.5 hover:shadow-editorial">
+              <img src="/ri-logo-2024.png" alt="Red Implantología" className="h-7 w-auto" />
+            </a>
+            <a href="https://fullarch.cl" target="_blank" rel="noreferrer" className="inline-flex h-12 items-center rounded-2xl border border-ri-ink/10 bg-ri-blue px-4 transition hover:-translate-y-0.5 hover:shadow-editorial">
+              <img src="/fullarch-logo.png" alt="Full Arch" className="h-8 w-auto" />
+            </a>
           </div>
-          <ul className="mt-8 grid gap-3">
+          <div className="mt-5 text-lg leading-8 text-ri-ink/70">
+            <p>Dr. Max Lizana conduce SQH desde la práctica clínica real: implantología, rehabilitación oral y tecnología aplicada a casos complejos; ordena la conversación, conecta criterios y abre preguntas útiles para profesionales y audiencias interesadas en salud.</p>
+          </div>
+          <ul className="mt-6 grid gap-3">
             {siteContent.maxCredentials.map((credential) => (
               <li key={credential} className="flex gap-3 border-t border-ri-ink/10 pt-3 text-sm font-bold text-ri-ink/70">
                 <span className="text-ri-blue">+</span>{credential}
