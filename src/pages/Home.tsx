@@ -18,10 +18,9 @@ export function Home() {
       <ScrollMotion />
       <Header />
       <Hero />
-      <PodcastFaq />
       <Season />
       <Max />
-      <RedImplantologia />
+      <PodcastFaq />
       <MapSection />
       <Contact />
       <Footer />
@@ -57,8 +56,8 @@ function Hero() {
         </div>
         <div className="reveal relative w-full self-center">
           <YouTubePreview
-            url={episodes[0].embed}
-            title="Kinesiología & Odontología"
+            url={episodes[1].embed}
+            title="Ortodoncia en adultos: mitos y verdades"
             eyebrow="Capítulo destacado"
             poster="/hero-podcast-cover.jpg"
             large
@@ -144,6 +143,8 @@ function PodcastFaq() {
 }
 
 function Season() {
+  const seasonEpisodes = [episodes[1], episodes[0], ...episodes.slice(2)];
+
   return (
     <section id="temporada" className="section bg-white">
       <div className="mx-auto max-w-[92rem] px-5 lg:px-10">
@@ -156,11 +157,10 @@ function Season() {
           </p>
         </div>
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {episodes.map((episode) => (
+          {seasonEpisodes.map((episode) => (
             <article key={episode.number} className="reveal overflow-hidden rounded-[1.5rem] border border-ri-ink/10 bg-white shadow-editorial transition duration-500 hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(11,13,18,0.16)]">
               <YouTubePreview url={episode.embed} eyebrow={`Capítulo ${episode.number}`} title={episode.title} />
               <div className="p-4 md:p-5">
-                <p className="font-black text-ri-red">Capítulo {episode.number}</p>
                 <h3 className="mt-2 text-lg font-black leading-tight md:text-xl">{episode.title}</h3>
                 <p className="mt-3 text-sm font-bold text-ri-blue">{episode.subtitle}</p>
                 <details className="group mt-4 rounded-2xl border border-ri-ink/10 transition duration-300 hover:border-ri-blue/40">
@@ -219,29 +219,6 @@ function Max() {
               </li>
             ))}
           </ul>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function RedImplantologia() {
-  return (
-    <section className="section border-y border-ri-ink/10 bg-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
-        <div className="reveal">
-          <p className="text-sm font-black uppercase tracking-[0.3em] text-ri-blue">Respaldo profesional</p>
-          <h2 className="mt-5 font-serif text-5xl leading-none md:text-7xl">Un podcast respaldado por experiencia clínica real</h2>
-          <p className="mt-6 text-xl leading-9 text-ri-ink/70">Red Implantología entrega contexto profesional: trabajo multidisciplinario, tecnología aplicada y experiencia clínica desde Viña del Mar.</p>
-          <p className="mt-5 text-lg leading-8 text-ri-ink/65">SQH toma ese respaldo y lo transforma en contenido editorial, no en una vitrina comercial.</p>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {["Equipo multidisciplinario", "Tecnología aplicada", "Trayectoria regional"].map((item) => (
-              <div key={item} className="border-l-2 border-ri-red pl-4 font-black">{item}</div>
-            ))}
-          </div>
-        </div>
-        <div className="reveal overflow-hidden rounded-[2rem] shadow-editorial">
-          <CloudinaryReadyMedia asset={media.clinic} className="h-full min-h-[460px] w-full object-cover" />
         </div>
       </div>
     </section>
