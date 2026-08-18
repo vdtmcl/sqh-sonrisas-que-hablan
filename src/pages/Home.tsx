@@ -243,11 +243,11 @@ function Max() {
           <h2 className="mt-5 font-serif text-6xl leading-none md:text-8xl">Dr. Max Lizana</h2>
           <p className="mt-5 text-2xl font-bold text-ri-ink/75">Trayectoria clínica, experiencia digital y mirada interdisciplinaria.</p>
           <div className="mt-5 flex flex-wrap items-center gap-4">
-            <a href="https://redimplantologia.cl" target="_blank" rel="noreferrer" className="inline-flex h-12 items-center rounded-2xl border border-ri-ink/10 bg-white px-4 transition hover:-translate-y-0.5 hover:shadow-editorial">
-              <img src="/ri-logo-2024.png" alt="Red Implantología" className="h-7 w-auto" />
+            <a href="https://redimplantologia.cl" target="_blank" rel="noreferrer" className="inline-flex h-12 w-44 items-center justify-center rounded-2xl border border-ri-ink/10 bg-white px-4 transition hover:-translate-y-0.5 hover:shadow-editorial">
+              <img src="/ri-logo-2024.png" alt="Red Implantología" className="max-h-7 max-w-full object-contain" />
             </a>
-            <a href="https://fullarch.cl" target="_blank" rel="noreferrer" className="inline-flex h-12 items-center rounded-2xl border border-ri-ink/10 bg-ri-blue px-4 transition hover:-translate-y-0.5 hover:shadow-editorial">
-              <img src="/fullarch-logo.png" alt="Full Arch" className="h-8 w-auto" />
+            <a href="https://fullarchchile.cl/" target="_blank" rel="noreferrer" className="inline-flex h-12 w-44 items-center justify-center rounded-2xl border border-ri-ink/10 bg-white px-4 transition hover:-translate-y-0.5 hover:shadow-editorial">
+              <img src="/fullarch-logo.png" alt="Full Arch" className="max-h-8 max-w-full object-contain" />
             </a>
           </div>
           <div className="mt-5 text-lg leading-8 text-ri-ink/70">
