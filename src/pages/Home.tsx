@@ -39,12 +39,12 @@ function Hero() {
             SQH Podcast
           </h1>
           <p className="mt-5 max-w-2xl text-xl font-semibold leading-snug text-ri-ink/85 md:text-2xl">
-            Conversaciones sobre salud, y tecnología aplicada,{" "}
+            Conversaciones sobre salud, y tecnología aplicada, conducidas por{" "}
             <a
               href="#max"
               className="font-black bg-[linear-gradient(90deg,#FF5F66,#174EFF)] bg-clip-text text-transparent transition hover:opacity-75"
             >
-              conducidas por Dr. Max Lizana
+              Dr. Max Lizana
             </a>{" "}
             desde Viña del Mar.
           </p>
@@ -137,7 +137,7 @@ function PodcastFaq() {
                     {item.body.includes("Dr. Max Lizana") ? (
                       <>
                         Un podcast editorial sobre salud, tecnología aplicada y conversaciones profesionales conducido por{" "}
-                        <a href="#max" className="font-black text-ri-blue underline decoration-ri-red/50 underline-offset-4">
+                        <a href="#max" className="font-black bg-[linear-gradient(90deg,#FF5F66,#174EFF)] bg-clip-text text-transparent transition hover:opacity-75">
                           Dr. Max Lizana
                         </a>{" "}
                         desde Viña del Mar. SQH propone una mirada amplia: conversar con especialistas, ordenar criterio clínico y acercar temas complejos a una audiencia que busca entender mejor cómo cambia la salud.
@@ -198,7 +198,7 @@ function Season() {
                       {episode.guest.includes("Dr. Max Lizana") ? (
                         <>
                           Conduce{" "}
-                          <a href="#max" className="font-bold text-ri-blue underline decoration-ri-red/40 underline-offset-4">
+                          <a href="#max" className="font-black bg-[linear-gradient(90deg,#FF5F66,#174EFF)] bg-clip-text text-transparent transition hover:opacity-75">
                             Dr. Max Lizana
                           </a>
                           .
