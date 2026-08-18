@@ -12,6 +12,8 @@ import { media } from "../data/media";
 import { siteContent } from "../data/content";
 import { episodes } from "../data/episodes";
 
+const maxLizanaUrl = "https://88bbe045.sqh-sonrisas-que-hablan.pages.dev/#max";
+
 export function Home() {
   return (
     <main className="overflow-hidden bg-white">
@@ -39,9 +41,9 @@ function Hero() {
             SQH Podcast
           </h1>
           <p className="mt-5 max-w-2xl text-xl font-semibold leading-snug text-ri-ink/85 md:text-2xl">
-            Conversaciones sobre salud, y tecnología aplicada, conducidas por{" "}
+            Conversaciones sobre salud, y tecnología aplicada, conducidas por el{" "}
             <a
-              href="#max"
+              href={maxLizanaUrl}
               className="font-black bg-[linear-gradient(90deg,#FF5F66,#174EFF)] bg-clip-text text-transparent transition hover:opacity-75"
             >
               Dr. Max Lizana
@@ -73,7 +75,7 @@ function PodcastFaq() {
   const faqs = [
     {
       title: "¿Qué es SQH?",
-      body: "Un podcast editorial sobre salud, tecnología aplicada y conversaciones profesionales conducido por Dr. Max Lizana desde Viña del Mar. SQH propone una mirada amplia: conversar con especialistas, ordenar criterio clínico y acercar temas complejos a una audiencia que busca entender mejor cómo cambia la salud."
+      body: "Un podcast editorial sobre salud, tecnología aplicada y conversaciones profesionales conducido por el Dr. Max Lizana desde Viña del Mar. SQH propone una mirada amplia: conversar con especialistas, ordenar criterio clínico y acercar temas complejos a una audiencia que busca entender mejor cómo cambia la salud."
     },
     {
       title: "¿Qué mirada propone?",
@@ -136,8 +138,8 @@ function PodcastFaq() {
                   <p className="px-4 pb-5 text-base leading-7 opacity-75 md:text-lg md:leading-8">
                     {item.body.includes("Dr. Max Lizana") ? (
                       <>
-                        Un podcast editorial sobre salud, tecnología aplicada y conversaciones profesionales conducido por{" "}
-                        <a href="#max" className="font-black bg-[linear-gradient(90deg,#FF5F66,#174EFF)] bg-clip-text text-transparent transition hover:opacity-75">
+                        Un podcast editorial sobre salud, tecnología aplicada y conversaciones profesionales conducido por el{" "}
+                        <a href={maxLizanaUrl} className="font-black bg-[linear-gradient(90deg,#FF5F66,#174EFF)] bg-clip-text text-transparent transition hover:opacity-75">
                           Dr. Max Lizana
                         </a>{" "}
                         desde Viña del Mar. SQH propone una mirada amplia: conversar con especialistas, ordenar criterio clínico y acercar temas complejos a una audiencia que busca entender mejor cómo cambia la salud.
@@ -251,7 +253,7 @@ function Max() {
             </a>
           </div>
           <div className="mt-5 text-lg leading-8 text-ri-ink/70">
-            <p>Dr. Max Lizana conduce SQH desde la práctica clínica real: implantología, rehabilitación oral y tecnología aplicada a casos complejos; ordena la conversación, conecta criterios y abre preguntas útiles para profesionales y audiencias interesadas en salud.</p>
+            <p>El Dr. Max Lizana conduce SQH desde la práctica clínica real: implantología, rehabilitación oral y tecnología aplicada a casos complejos; ordena la conversación, conecta criterios y abre preguntas útiles para profesionales y audiencias interesadas en salud.</p>
           </div>
           <ul className="mt-6 grid gap-3">
             {siteContent.maxCredentials.map((credential) => (

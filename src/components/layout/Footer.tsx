@@ -1,5 +1,7 @@
 import { navigation } from "../../data/navigation";
 
+const maxLizanaUrl = "https://88bbe045.sqh-sonrisas-que-hablan.pages.dev/#max";
+
 export function Footer() {
   return (
     <footer className="border-t border-ri-ink/10 bg-ri-ink px-5 py-14 text-white lg:px-8">
@@ -10,8 +12,8 @@ export function Footer() {
         <div>
           <p className="text-sm font-black uppercase tracking-[0.28em] text-ri-red">SQH Podcast</p>
           <p className="mt-5 max-w-sm text-white/70">
-            Conversaciones sobre salud y tecnología aplicada, conducidas por{" "}
-            <a href="#max" className="font-black bg-[linear-gradient(90deg,#FF5F66,#174EFF)] bg-clip-text text-transparent transition hover:opacity-75">
+            Conversaciones sobre salud y tecnología aplicada, conducidas por el{" "}
+            <a href={maxLizanaUrl} className="font-black bg-[linear-gradient(90deg,#FF5F66,#174EFF)] bg-clip-text text-transparent transition hover:opacity-75">
               Dr. Max Lizana
             </a>{" "}
             desde Viña del Mar.
