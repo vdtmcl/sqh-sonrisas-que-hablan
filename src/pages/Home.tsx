@@ -161,7 +161,15 @@ function Season() {
             <article key={episode.number} className="reveal overflow-hidden rounded-[1.5rem] border border-ri-ink/10 bg-white shadow-editorial transition duration-500 hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(11,13,18,0.16)]">
               <YouTubePreview url={episode.embed} eyebrow={`Capítulo ${episode.number}`} title={episode.title} />
               <div className="p-4 md:p-5">
-                <h3 className="mt-2 text-lg font-black leading-tight md:text-xl">{episode.title}</h3>
+                <h3 className="mt-2 text-lg font-black leading-tight md:text-xl">
+                  {episode.title === "Kinesiología & Odontología" ? (
+                    <>
+                      Kinesiología &<br />Odontología
+                    </>
+                  ) : (
+                    episode.title
+                  )}
+                </h3>
                 <p className="mt-3 text-sm font-bold text-ri-blue">{episode.subtitle}</p>
                 <details className="group mt-4 rounded-2xl border border-ri-ink/10 transition duration-300 hover:border-ri-blue/40">
                   <summary className="flex w-full cursor-pointer list-none items-center justify-between rounded-2xl px-4 py-3 text-sm font-black transition hover:text-ri-blue">

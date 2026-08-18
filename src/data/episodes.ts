@@ -2,7 +2,7 @@ export const episodes = [
   {
     number: "01",
     title: "Kinesiología & Odontología",
-    subtitle: "Cuando dolor, postura y salud oral se conectan.",
+    subtitle: "Cuando dolor, postura y salud oral se conectan desde una mirada integral.",
     description:
       "El capítulo abre una conversación entre odontología y kinesiología para mirar el dolor más allá de un síntoma aislado. Bruxismo, articulación temporomandibular, postura, musculatura y rehabilitación aparecen como partes de una misma lectura clínica, donde la salud oral puede dialogar directamente con el cuerpo completo.",
     idea: "La salud oral también puede leerse desde el cuerpo completo.",
