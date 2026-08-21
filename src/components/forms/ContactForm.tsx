@@ -67,7 +67,7 @@ export function ContactForm() {
         Archivo adjunto <span className="font-normal text-ri-ink/50">(opcional, máximo 10 MB)</span>
         <span className="flex items-center gap-3 rounded-2xl border border-dashed border-ri-ink/20 bg-ri-mist px-4 py-3 font-normal">
           <FileUp size={18} className="shrink-0 text-ri-blue" />
-          <span className="min-w-0 flex-1 truncate text-ri-ink/70">{fileName || "PDF, Word, Excel, PowerPoint o imagen"}</span>
+          <span className="min-w-0 flex-1 truncate text-ri-ink/70">{fileName}</span>
           <input
             name="attachment"
             type="file"
