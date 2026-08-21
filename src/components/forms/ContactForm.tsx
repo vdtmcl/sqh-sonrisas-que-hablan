@@ -1,11 +1,10 @@
 import { FormEvent, useState } from "react";
-import { FileUp, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import { siteContent } from "../../data/content";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
-  const [fileName, setFileName] = useState("");
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -27,7 +26,6 @@ export function ContactForm() {
       }
 
       formElement.reset();
-      setFileName("");
       setStatus("success");
     } catch (error) {
       setErrorMessage(error instanceof Error ? error.message : "No pudimos enviar tu mensaje.");
@@ -67,13 +65,11 @@ export function ContactForm() {
       </label>
       <div className="flex flex-wrap items-center gap-3">
         <label className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-ri-ink px-4 py-2.5 text-sm font-bold text-white transition hover:bg-ri-blue">
-          <FileUp size={16} />
-          <span className="max-w-[14rem] truncate">{fileName || "Adjuntar archivo"}</span>
+          Adjuntar archivo
           <input
             name="attachment"
             type="file"
             accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.jpg,.jpeg,.png,.webp"
-            onChange={(event) => setFileName(event.target.files?.[0]?.name || "")}
             className="sr-only"
           />
         </label>
