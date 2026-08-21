@@ -66,10 +66,12 @@ export function ContactForm() {
         />
       </label>
       <label className="grid gap-2 text-sm font-bold">
-        Archivo adjunto <span className="font-normal text-ri-ink/50">(opcional, máximo 10 MB)</span>
-        <span className="flex items-center gap-3 rounded-2xl border border-dashed border-ri-ink/20 bg-ri-mist px-4 py-3 font-normal">
+        <span>
+          Archivo adjunto <span className="font-normal text-ri-ink/50">(opcional, máximo 10 MB)</span>
+        </span>
+        <span className="flex items-center justify-start gap-3 rounded-2xl border border-dashed border-ri-ink/20 bg-ri-mist px-4 py-3 font-normal">
           <FileUp size={18} className="shrink-0 text-ri-blue" />
-          <span className="min-w-0 flex-1 truncate text-ri-ink/70">{fileName}</span>
+          {fileName && <span className="min-w-0 max-w-[14rem] truncate text-ri-ink/70">{fileName}</span>}
           <input
             name="attachment"
             type="file"
