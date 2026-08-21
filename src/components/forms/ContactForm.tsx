@@ -65,22 +65,20 @@ export function ContactForm() {
           className="rounded-2xl border border-ri-ink/15 bg-white px-4 py-3 font-normal outline-none focus:border-ri-blue"
         />
       </label>
-      <label className="grid gap-2 text-sm font-bold">
-        <span>
-          Archivo adjunto <span className="font-normal text-ri-ink/50">(opcional, máximo 10 MB)</span>
-        </span>
-        <span className="flex items-center justify-start gap-3 rounded-2xl border border-dashed border-ri-ink/20 bg-ri-mist px-4 py-3 font-normal">
-          <FileUp size={18} className="shrink-0 text-ri-blue" />
-          {fileName && <span className="min-w-0 max-w-[14rem] truncate text-ri-ink/70">{fileName}</span>}
+      <div className="flex flex-wrap items-center gap-3">
+        <label className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-ri-ink px-4 py-2.5 text-sm font-bold text-white transition hover:bg-ri-blue">
+          <FileUp size={16} />
+          <span className="max-w-[14rem] truncate">{fileName || "Adjuntar archivo"}</span>
           <input
             name="attachment"
             type="file"
             accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.jpg,.jpeg,.png,.webp"
             onChange={(event) => setFileName(event.target.files?.[0]?.name || "")}
-            className="w-[105px] shrink-0 text-xs font-normal"
+            className="sr-only"
           />
-        </span>
-      </label>
+        </label>
+        <span className="text-sm text-ri-ink/50">(opcional, máximo 10 MB)</span>
+      </div>
       <button disabled={status === "sending"} className="inline-flex w-fit items-center gap-2 rounded-full bg-ri-ink px-6 py-3 font-bold text-white transition hover:-translate-y-1 hover:bg-ri-blue disabled:cursor-wait disabled:opacity-60">
         {status === "sending" ? "Enviando…" : "Enviar mensaje"} <Send size={16} />
       </button>
