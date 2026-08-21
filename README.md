@@ -11,7 +11,7 @@ Frontend one page para el podcast SQH, construido como una experiencia editorial
 - GSAP ScrollTrigger
 - Three.js, @react-three/fiber y @react-three/drei
 - Google Font API
-- Preparado para Cloudinary, Google Analytics, Google Tag Manager, Google Maps y Cloudflare Turnstile
+- Preparado para Cloudinary, Google Analytics, Google Tag Manager, Google Maps, Cloudflare Turnstile y Resend
 - Pensado para Cloudflare Pages con HTTP/3 vía Cloudflare
 
 ## Comandos
@@ -60,6 +60,13 @@ Configuración de Cloudflare Pages:
 - Output directory: `dist`
 - Variables de entorno: usar las mismas de `.env.example` en el panel de Cloudflare.
 
+## Formulario y Resend
+
+El formulario envía los mensajes a `formulario@sqh.cl` mediante `functions/api/contact.ts`, incluyendo un archivo adjunto opcional de hasta 10 MB. En Cloudflare Pages configura como variables protegidas:
+
+- `RESEND_API_KEY`: clave de API de Resend.
+- `RESEND_FROM_EMAIL`: remitente de un dominio verificado en Resend, por ejemplo `SQH Web <formulario@sqh.cl>`.
+
 ## Rutas
 
 - `/`: sitio one page.
@@ -71,4 +78,3 @@ Configuración de Cloudflare Pages:
 - Reemplazar placeholders por fotos, posters y videos definitivos.
 - Validar cifras institucionales de Red Implantología antes de publicarlas.
 - Definir URLs reales de YouTube, Instagram, OG image y dominio final.
-- Conectar backend/form handler si el formulario deja de ser simulado.
