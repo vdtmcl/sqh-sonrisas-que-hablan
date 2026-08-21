@@ -1,7 +1,6 @@
 import { FormEvent, useState } from "react";
 import { FileUp, Send } from "lucide-react";
 import { siteContent } from "../../data/content";
-import { env } from "../../lib/env";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -78,9 +77,6 @@ export function ContactForm() {
           />
         </span>
       </label>
-      <div className="rounded-2xl border border-dashed border-ri-ink/20 bg-ri-mist p-4 text-sm text-ri-ink/60">
-        Cloudflare Turnstile preparado: {env.turnstileSiteKey ? "site key detectada" : "agrega VITE_CLOUDFLARE_TURNSTILE_SITE_KEY para activar el widget real"}.
-      </div>
       <button disabled={status === "sending"} className="inline-flex w-fit items-center gap-2 rounded-full bg-ri-ink px-6 py-3 font-bold text-white transition hover:-translate-y-1 hover:bg-ri-blue disabled:cursor-wait disabled:opacity-60">
         {status === "sending" ? "Enviando…" : "Enviar mensaje"} <Send size={16} />
       </button>
