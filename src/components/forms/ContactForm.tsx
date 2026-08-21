@@ -38,11 +38,13 @@ export function ContactForm() {
   return (
     <form onSubmit={onSubmit} className="grid gap-4">
       <div className="grid gap-4 md:grid-cols-2">
-        <Field name="name" label="Nombre y apellido" required />
+        <div className="md:col-span-2">
+          <Field name="name" label="Nombre y apellido" required />
+        </div>
+        <Field name="institution" label="Institución" />
         <Field name="role" label="Profesión / cargo" />
-        <Field name="institution" label="Institución / centro médico" />
-        <Field name="email" label="Email" type="email" required />
         <Field name="whatsapp" label="WhatsApp" />
+        <Field name="email" label="Email" type="email" required />
       </div>
       <label className="grid gap-2 text-sm font-bold">
         Motivo de contacto
