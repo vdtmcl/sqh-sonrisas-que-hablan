@@ -1,16 +1,39 @@
 import { FormEvent, useState } from "react";
-import { Send } from "lucide-react";
+import { FileUp, Send } from "lucide-react";
 import { siteContent } from "../../data/content";
 import { env } from "../../lib/env";
 
 export function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [fileName, setFileName] = useState("");
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const required = ["name", "lastName", "email", "reason", "message"];
-    setStatus(required.every((field) => String(form.get(field) || "").trim()) ? "success" : "error");
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
+
+    setStatus("sending");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: form,
+      });
+      const data = (await response.json().catch(() => ({}))) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(data.error || "No pudimos enviar tu mensaje.");
+      }
+
+      formElement.reset();
+      setFileName("");
+      setStatus("success");
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : "No pudimos enviar tu mensaje.");
+      setStatus("error");
+    }
   }
 
   return (
@@ -42,14 +65,28 @@ export function ContactForm() {
           className="rounded-2xl border border-ri-ink/15 bg-white px-4 py-3 font-normal outline-none focus:border-ri-blue"
         />
       </label>
+      <label className="grid gap-2 text-sm font-bold">
+        Archivo adjunto <span className="font-normal text-ri-ink/50">(opcional, máximo 10 MB)</span>
+        <span className="flex items-center gap-3 rounded-2xl border border-dashed border-ri-ink/20 bg-ri-mist px-4 py-3 font-normal">
+          <FileUp size={18} className="shrink-0 text-ri-blue" />
+          <span className="min-w-0 flex-1 truncate text-ri-ink/70">{fileName || "PDF, Word, Excel, PowerPoint o imagen"}</span>
+          <input
+            name="attachment"
+            type="file"
+            accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.jpg,.jpeg,.png,.webp"
+            onChange={(event) => setFileName(event.target.files?.[0]?.name || "")}
+            className="w-[105px] shrink-0 text-xs font-normal"
+          />
+        </span>
+      </label>
       <div className="rounded-2xl border border-dashed border-ri-ink/20 bg-ri-mist p-4 text-sm text-ri-ink/60">
         Cloudflare Turnstile preparado: {env.turnstileSiteKey ? "site key detectada" : "agrega VITE_CLOUDFLARE_TURNSTILE_SITE_KEY para activar el widget real"}.
       </div>
-      <button className="inline-flex w-fit items-center gap-2 rounded-full bg-ri-ink px-6 py-3 font-bold text-white transition hover:-translate-y-1 hover:bg-ri-blue">
-        Enviar mensaje <Send size={16} />
+      <button disabled={status === "sending"} className="inline-flex w-fit items-center gap-2 rounded-full bg-ri-ink px-6 py-3 font-bold text-white transition hover:-translate-y-1 hover:bg-ri-blue disabled:cursor-wait disabled:opacity-60">
+        {status === "sending" ? "Enviando…" : "Enviar mensaje"} <Send size={16} />
       </button>
-      {status === "success" && <p className="rounded-2xl bg-green-50 p-4 text-sm text-green-800">Gracias por escribirnos. El equipo de SQH revisará tu mensaje y se pondrá en contacto si la propuesta se alinea con la línea editorial del podcast.</p>}
-      {status === "error" && <p className="rounded-2xl bg-red-50 p-4 text-sm text-red-800">No pudimos enviar tu mensaje. Revisa los campos obligatorios e inténtalo nuevamente.</p>}
+      {status === "success" && <p aria-live="polite" className="rounded-2xl bg-green-50 p-4 text-sm text-green-800">Mensaje enviado correctamente. El equipo de SQH revisará tu solicitud.</p>}
+      {status === "error" && <p aria-live="assertive" className="rounded-2xl bg-red-50 p-4 text-sm text-red-800">{errorMessage}</p>}
     </form>
   );
 }
