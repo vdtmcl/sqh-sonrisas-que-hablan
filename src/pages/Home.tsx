@@ -233,11 +233,8 @@ function Max() {
     <section id="max" className="section">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
         <div className="reveal relative">
-          <div className="overflow-hidden rounded-[2.5rem] shadow-editorial">
-            <CloudinaryReadyMedia asset={media.max} className="h-[620px] w-full object-cover" />
-          </div>
-          <div className="absolute -bottom-8 right-8 max-w-sm rounded-[2rem] bg-ri-blue p-6 text-white shadow-editorial">
-            La tecnología puede cambiar la forma de tratar, pero el criterio clínico sigue siendo el centro.
+          <div className="aspect-square overflow-hidden rounded-[2.5rem] shadow-editorial">
+            <CloudinaryReadyMedia asset={media.max} className="aspect-square w-full object-cover" />
           </div>
         </div>
         <div className="reveal">

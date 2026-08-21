@@ -6,8 +6,8 @@ export const media = {
     cloudinaryPublicId: "reemplazar/sqh/hero-studio"
   },
   max: {
-    src: "/dr-max-lizana.png",
-    alt: "Dr. Max Lizana en Red Implantología.",
+    src: "/max-lizana-red-implantologia.png",
+    alt: "Dr. Max Lizana en su consulta de Red Implantología.",
     cloudinaryPublicId: "reemplazar/sqh/max-lizana"
   },
   clinic: {
