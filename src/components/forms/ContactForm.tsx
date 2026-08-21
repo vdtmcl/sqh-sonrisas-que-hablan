@@ -64,20 +64,19 @@ export function ContactForm() {
         />
       </label>
       <div className="flex flex-wrap items-center gap-3">
-        <label className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-ri-ink px-4 py-2.5 text-sm font-bold text-white transition hover:bg-ri-blue">
-          Adjuntar archivo
-          <input
-            name="attachment"
-            type="file"
-            accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.jpg,.jpeg,.png,.webp"
-            className="sr-only"
-          />
-        </label>
+        <input
+          name="attachment"
+          type="file"
+          accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.jpg,.jpeg,.png,.webp"
+          className="w-[155px] shrink-0 text-sm"
+        />
         <span className="text-sm text-ri-ink/50">(opcional, máximo 10 MB)</span>
       </div>
-      <button disabled={status === "sending"} className="inline-flex w-fit items-center gap-2 rounded-full bg-ri-ink px-6 py-3 font-bold text-white transition hover:-translate-y-1 hover:bg-ri-blue disabled:cursor-wait disabled:opacity-60">
-        {status === "sending" ? "Enviando…" : "Enviar mensaje"} <Send size={16} />
-      </button>
+      <div className="flex justify-center">
+        <button disabled={status === "sending"} className="inline-flex w-fit items-center gap-2 rounded-full bg-ri-ink px-6 py-3 font-bold text-white transition hover:-translate-y-1 hover:bg-ri-blue disabled:cursor-wait disabled:opacity-60">
+          {status === "sending" ? "Enviando…" : "Enviar mensaje"} <Send size={16} />
+        </button>
+      </div>
       {status === "success" && <p aria-live="polite" className="rounded-2xl bg-green-50 p-4 text-sm text-green-800">Mensaje enviado correctamente. El equipo de SQH revisará tu solicitud.</p>}
       {status === "error" && <p aria-live="assertive" className="rounded-2xl bg-red-50 p-4 text-sm text-red-800">{errorMessage}</p>}
     </form>
