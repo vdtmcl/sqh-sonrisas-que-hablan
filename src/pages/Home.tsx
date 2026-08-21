@@ -231,7 +231,7 @@ function Season() {
 function Max() {
   return (
     <section id="max" className="section">
-      <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-8">
         <div className="reveal relative">
           <div className="aspect-square overflow-hidden rounded-[2.5rem] shadow-editorial">
             <CloudinaryReadyMedia asset={media.max} className="aspect-square w-full object-cover" />
@@ -252,13 +252,6 @@ function Max() {
           <div className="mt-5 text-lg leading-8 text-ri-ink/70">
             <p>El Dr. Max Lizana conduce SQH desde la práctica clínica real: implantología, rehabilitación oral y tecnología aplicada a casos complejos; ordena la conversación, conecta criterios y abre preguntas útiles para profesionales y audiencias interesadas en salud.</p>
           </div>
-          <ul className="mt-6 grid gap-3">
-            {siteContent.maxCredentials.map((credential) => (
-              <li key={credential} className="flex gap-3 border-t border-ri-ink/10 pt-3 text-sm font-bold text-ri-ink/70">
-                <span className="text-ri-blue">+</span>{credential}
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </section>
