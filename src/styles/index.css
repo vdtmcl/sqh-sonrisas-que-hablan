@@ -7,6 +7,10 @@ html {
   scroll-behavior: smooth;
 }
 
+:where(#inicio, #podcast, #temporada, #max, #contacto) {
+  scroll-margin-top: 7rem;
+}
+
 body {
   margin: 0;
   background: var(--paper);
@@ -36,6 +40,12 @@ body {
 
 .section {
   padding: clamp(3.5rem, 6.5vw, 6.5rem) 0;
+}
+
+@media (min-width: 768px) {
+  :where(#inicio, #podcast, #temporada, #max, #contacto) {
+    scroll-margin-top: 8rem;
+  }
 }
 
 .reveal {
