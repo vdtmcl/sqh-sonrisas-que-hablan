@@ -23,10 +23,8 @@ export const siteContent = {
     "Experiencia en rehabilitación oral, implantología y flujos digitales aplicados a casos complejos."
   ],
   contactReasons: [
+    "Quiero participar del podcast",
     "Quiero proponer un invitado",
-    "Quiero participar en el podcast",
-    "Represento a una institución de salud",
-    "Quiero coordinar una colaboración",
     "Prensa o comunicaciones",
     "Otro"
   ]

@@ -63,16 +63,15 @@ export async function onRequestPost({ request, env }: PagesContext) {
   }
 
   const name = String(form.get("name") ?? "").trim();
-  const lastName = String(form.get("lastName") ?? "").trim();
   const role = String(form.get("role") ?? "").trim();
   const institution = String(form.get("institution") ?? "").trim();
   const email = String(form.get("email") ?? "").trim();
-  const phone = String(form.get("phone") ?? "").trim();
+  const whatsapp = String(form.get("whatsapp") ?? "").trim();
   const reason = String(form.get("reason") ?? "").trim();
   const message = String(form.get("message") ?? "").trim();
   const attachment = form.get("attachment");
 
-  if (!name || !lastName || !email || !reason || !message) {
+  if (!name || !email || !reason || !message) {
     return json({ error: "Completa todos los campos obligatorios." }, 400);
   }
 
@@ -101,12 +100,12 @@ export async function onRequestPost({ request, env }: PagesContext) {
     });
   }
 
-  const subject = `[SQH] ${reason} — ${name} ${lastName}`;
+  const subject = `${name} | ${institution || "No indicada"} Formulario SQH Podcast`;
   const html = `
     <h2>Nuevo mensaje desde sqh.cl</h2>
-    <p><strong>Nombre:</strong> ${escapeHtml(`${name} ${lastName}`)}</p>
+    <p><strong>Nombre y apellido:</strong> ${escapeHtml(name)}</p>
     <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-    <p><strong>Teléfono:</strong> ${escapeHtml(phone || "No indicado")}</p>
+    <p><strong>WhatsApp:</strong> ${escapeHtml(whatsapp || "No indicado")}</p>
     <p><strong>Profesión / cargo:</strong> ${escapeHtml(role || "No indicado")}</p>
     <p><strong>Institución:</strong> ${escapeHtml(institution || "No indicada")}</p>
     <p><strong>Motivo:</strong> ${escapeHtml(reason)}</p>
