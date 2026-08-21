@@ -272,15 +272,15 @@ function Contact() {
   return (
     <section id="contacto" className="section bg-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
-        <div className="reveal">
+        <div className="reveal min-w-0">
           <p className="text-sm font-black uppercase tracking-[0.3em] text-ri-red">Contacto</p>
-          <h2 className="mt-5 font-serif text-6xl leading-none md:text-8xl">Salud, tecnología y conversaciones que importan</h2>
+          <h2 className="mt-5 break-words font-serif text-5xl leading-[0.95] [overflow-wrap:anywhere] md:text-8xl">Salud, tecnología y conversaciones que importan</h2>
           <p className="mt-6 text-xl leading-9 text-ri-ink/70">Propón invitados, coordina participaciones o solicita información sobre el formato SQH.</p>
           <div className="mt-8 flex gap-4 text-ri-blue">
             <Radio /><Network /><Mic2 /><AudioLines />
           </div>
         </div>
-        <div className="reveal rounded-[2rem] border border-ri-ink/10 bg-ri-mist p-5 md:p-8">
+        <div className="reveal min-w-0 rounded-[2rem] border border-ri-ink/10 bg-ri-mist p-5 md:p-8">
           <ContactForm />
         </div>
       </div>
