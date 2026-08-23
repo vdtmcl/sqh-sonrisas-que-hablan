@@ -60,7 +60,6 @@ function Hero() {
           <YouTubePreview
             url={episodes[1].embed}
             title="Ortodoncia en adultos: mitos y verdades"
-            eyebrow="Capítulo destacado"
             poster="/hero-podcast-cover.jpg"
             large
           />
@@ -175,8 +174,9 @@ function Season() {
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {seasonEpisodes.map((episode) => (
             <article key={episode.number} className="reveal overflow-hidden rounded-[1.5rem] border border-ri-ink/10 bg-white shadow-editorial transition duration-500 hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(11,13,18,0.16)]">
-              <YouTubePreview url={episode.embed} eyebrow={`Capítulo ${episode.number}`} title={episode.title} />
+              <YouTubePreview url={episode.embed} title={episode.title} />
               <div className="p-4 md:p-5">
+                <p className="text-xs font-black uppercase tracking-[0.28em] text-ri-blue">Capítulo {episode.number}</p>
                 <h3 className="mt-2 text-lg font-black leading-tight md:text-xl">
                   {episode.title === "Kinesiología & Odontología" ? (
                     <>

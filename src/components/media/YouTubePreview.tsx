@@ -4,13 +4,12 @@ import { youtubeEmbedUrl, youtubeThumbnail } from "../../lib/youtube";
 
 type Props = {
   url: string;
-  eyebrow?: string;
   title: string;
   large?: boolean;
   poster?: string;
 };
 
-export function YouTubePreview({ url, eyebrow = "YouTube", title, large = false, poster }: Props) {
+export function YouTubePreview({ url, title, large = false, poster }: Props) {
   const [playing, setPlaying] = useState(false);
   const embedUrl = `${youtubeEmbedUrl(url)}?autoplay=1&rel=0&modestbranding=1`;
   const imageSrc = poster ?? youtubeThumbnail(url);
@@ -46,26 +45,16 @@ export function YouTubePreview({ url, eyebrow = "YouTube", title, large = false,
         loading={large ? "eager" : "lazy"}
         decoding="async"
         fetchPriority={large ? "high" : "auto"}
-        className={`h-full w-full object-cover opacity-85 ${large ? "" : "transition duration-700 group-hover:scale-105"}`}
+        className={`h-full w-full object-cover ${large ? "" : "transition duration-700 group-hover:scale-105"}`}
       />
-      <div className="absolute inset-0 bg-black/25" />
       {large ? (
         <span className="absolute left-1/2 top-1/2 grid h-24 w-24 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-ri-ink opacity-70">
           <Play fill="currentColor" size={38} />
         </span>
       ) : (
-        <>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-          <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
-            <div>
-              <p className="text-[0.65rem] font-black uppercase tracking-[0.28em] text-white/70">{eyebrow}</p>
-              <p className="mt-2 max-w-sm text-lg font-black leading-tight md:text-xl">{title}</p>
-            </div>
-            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white text-ri-ink transition group-hover:bg-ri-red group-hover:text-white">
-              <Play fill="currentColor" size={18} />
-            </span>
-          </div>
-        </>
+        <span className="absolute bottom-4 right-4 grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white text-ri-ink transition group-hover:bg-ri-red group-hover:text-white">
+          <Play fill="currentColor" size={18} />
+        </span>
       )}
     </button>
   );
