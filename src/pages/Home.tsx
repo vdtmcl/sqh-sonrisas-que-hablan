@@ -158,7 +158,7 @@ function PodcastFaq() {
 }
 
 function Season() {
-  const seasonEpisodes = [episodes[1], episodes[0], ...episodes.slice(2)];
+  const seasonEpisodes = [episodes[1], episodes[0], episodes[5], episodes[2], episodes[3], episodes[4]];
 
   return (
     <section id="temporada" className="section bg-white">

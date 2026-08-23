@@ -1,6 +1,6 @@
 export const episodes = [
   {
-    number: "01",
+    number: "05",
     title: "Kinesiología & Odontología",
     subtitle: "Cuando dolor, postura y salud oral se conectan desde una mirada integral.",
     description:
@@ -10,7 +10,7 @@ export const episodes = [
     embed: "https://youtu.be/L6RkjrPqUqI"
   },
   {
-    number: "02",
+    number: "06",
     title: "Ortodoncia en adultos: mitos y verdades",
     subtitle: "Función, estética y planificación en una etapa donde cada decisión importa.",
     description:
@@ -30,7 +30,7 @@ export const episodes = [
     embed: "https://youtu.be/r1JEaAVWSOA?si=L_rDxQh6bRsv-zJO"
   },
   {
-    number: "04",
+    number: "02",
     title: "¿Qué es la regeneración ósea guiada y cuándo se necesita?",
     subtitle: "Cirugía avanzada, planificación, precisión y experiencia.",
     description:
@@ -40,7 +40,7 @@ export const episodes = [
     embed: "https://youtu.be/fC3kelLUJH8?si=nd8seBbtGjeBvv-L"
   },
   {
-    number: "05",
+    number: "01",
     title: "¿La periodontitis tiene cura? Todo sobre tus encías",
     subtitle: "Encías, inflamación, prevención y salud oral de largo plazo.",
     description:
@@ -50,7 +50,7 @@ export const episodes = [
     embed: "https://youtu.be/DneKThi_S54?si=3lvf5k8QoiZCtYPj"
   },
   {
-    number: "06",
+    number: "04",
     title: "¿Dientes fijos en 48 horas o puro marketing?",
     subtitle: "Expectativas reales, tecnología y responsabilidad frente a las promesas clínicas.",
     description:
