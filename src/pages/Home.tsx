@@ -8,14 +8,18 @@ import { YouTubePreview } from "../components/media/YouTubePreview";
 import { ContactForm } from "../components/forms/ContactForm";
 import { ScrollMotion } from "../components/motion/ScrollMotion";
 import { MapSection } from "../components/sections/MapSection";
+import { SEOHead } from "../components/seo/SEOHead";
 import { cloudinaryAssets, cloudinaryThumbnails, media } from "../data/media";
 import { siteContent } from "../data/content";
 import { episodes } from "../data/episodes";
+import { episodePath } from "../lib/episodes";
+import { homeSeo } from "../lib/seo";
 import { youtubeId } from "../lib/youtube";
 
 export function Home() {
   return (
     <main className="overflow-hidden bg-white">
+      <SEOHead seo={homeSeo} />
       <ScrollMotion />
       <Header />
       <Hero />
@@ -60,6 +64,7 @@ function Hero() {
             url={episodes[1].embed}
             title="Ortodoncia en adultos: mitos y verdades"
             poster={cloudinaryAssets.heroPoster}
+            href={episodePath(episodes[1].slug)}
             large
           />
         </div>
@@ -106,6 +111,7 @@ function PodcastFaq() {
           <p className="mt-5 max-w-2xl text-base leading-7 text-white/70 md:text-lg">
             SQH reúne a profesionales y especialistas para conversar sobre salud, tecnología aplicada, experiencia del paciente y colaboración entre disciplinas.
           </p>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-white/70 md:text-lg">{siteContent.hero.body}</p>
         </div>
         <div className="reveal grid gap-2">
           {faqs.map((item, index) => {
@@ -132,8 +138,7 @@ function PodcastFaq() {
                   </span>
                   <ChevronDown className={`shrink-0 transition ${isOpen ? "rotate-180" : ""}`} size={18} />
                 </button>
-                {isOpen ? (
-                  <p className="px-4 pb-5 text-base leading-7 opacity-75 md:text-lg md:leading-8">
+                <p hidden={!isOpen} className="px-4 pb-5 text-base leading-7 opacity-75 md:text-lg md:leading-8">
                     {item.body.includes("Dr. Max Lizana") ? (
                       <>
                         Un podcast editorial sobre salud, tecnología aplicada y conversaciones profesionales conducido por el{" "}
@@ -145,8 +150,7 @@ function PodcastFaq() {
                     ) : (
                       item.body
                     )}
-                  </p>
-                ) : null}
+                </p>
               </div>
             );
           })}
@@ -177,6 +181,7 @@ function Season() {
                 url={episode.embed}
                 title={episode.title}
                 thumbnailUrl={cloudinaryThumbnails[youtubeId(episode.embed)]}
+                href={episodePath(episode.slug)}
               />
               <div className="p-4 md:p-5">
                 <p className="text-xs font-black uppercase tracking-[0.28em] text-ri-blue">Capítulo {episode.number}</p>
@@ -253,6 +258,13 @@ function Max() {
             </a>
           </div>
           <div className="mt-5 text-lg leading-8 text-ri-ink/70">
+            <p className="font-bold text-ri-ink">{siteContent.hero.signature}</p>
+            <h3 className="mt-8 text-sm font-black uppercase tracking-[0.28em] text-ri-blue">Trayectoria profesional</h3>
+            <ul className="mt-4 grid gap-2 text-base leading-7">
+              {siteContent.maxCredentials.map((credential) => (
+                <li key={credential} className="border-l-2 border-ri-red pl-4">{credential}</li>
+              ))}
+            </ul>
             <p>El Dr. Max Lizana conduce SQH desde la práctica clínica real: implantología, rehabilitación oral y tecnología aplicada a casos complejos; ordena la conversación, conecta criterios y abre preguntas útiles para profesionales y audiencias interesadas en salud.</p>
           </div>
         </div>

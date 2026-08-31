@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
+import { SEOHead } from "../components/seo/SEOHead";
+import { previewSeo } from "../lib/seo";
 import { episodes } from "../data/episodes";
 import { Button } from "../components/ui/Button";
 
 export function Preview() {
   return (
-    <main className="min-h-screen bg-white px-5 py-12 lg:px-8">
+      <main className="min-h-screen bg-white px-5 py-12 lg:px-8">
+        <SEOHead seo={previewSeo} />
       <div className="mx-auto max-w-5xl">
         <Link to="/" className="text-sm font-bold text-ri-blue">Volver al sitio</Link>
         <h1 className="mt-8 font-serif text-7xl leading-none">Preview visual</h1>

@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
+import { SEOHead } from "../components/seo/SEOHead";
+import { notFoundSeo } from "../lib/seo";
 
 export function NotFound() {
   return (
-    <main className="grid min-h-screen place-items-center bg-white px-5 text-center">
+      <main className="grid min-h-screen place-items-center bg-white px-5 text-center">
+        <SEOHead seo={notFoundSeo} />
       <div>
         <p className="text-sm font-black uppercase tracking-[0.3em] text-ri-red">404</p>
         <h1 className="mt-4 font-serif text-6xl">Página no encontrada</h1>

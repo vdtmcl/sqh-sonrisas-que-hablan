@@ -12,7 +12,7 @@ export function Footer() {
           <p className="text-sm font-black uppercase tracking-[0.28em] text-ri-red">SQH Podcast</p>
           <p className="mt-5 max-w-sm text-white/70">
             Conversaciones sobre salud y tecnología aplicada, conducidas por el{" "}
-            <a href="#max" className="font-black bg-[linear-gradient(90deg,#FF5F66,#174EFF)] bg-clip-text text-transparent transition hover:opacity-75">
+            <a href="/#max" className="font-black bg-[linear-gradient(90deg,#FF5F66,#174EFF)] bg-clip-text text-transparent transition hover:opacity-75">
               Dr. Max Lizana
             </a>{" "}
             desde Viña del Mar.

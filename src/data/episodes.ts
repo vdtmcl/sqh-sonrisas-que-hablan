@@ -1,6 +1,7 @@
 export const episodes = [
   {
     number: "05",
+    slug: "kinesiologia-y-odontologia",
     title: "Kinesiología & Odontología",
     subtitle: "Cuando dolor, postura y salud oral se conectan desde una mirada integral.",
     description:
@@ -11,6 +12,7 @@ export const episodes = [
   },
   {
     number: "06",
+    slug: "ortodoncia-en-adultos",
     title: "Ortodoncia en adultos: mitos y verdades",
     subtitle: "Función, estética y planificación en una etapa donde cada decisión importa.",
     description:
@@ -21,6 +23,7 @@ export const episodes = [
   },
   {
     number: "03",
+    slug: "blanqueamiento-y-salud-dental",
     title: "¿El blanqueamiento debilita tus dientes?",
     subtitle: "Evidencia, estética y criterio clínico frente a una pregunta común.",
     description:
@@ -31,6 +34,7 @@ export const episodes = [
   },
   {
     number: "02",
+    slug: "regeneracion-osea-guiada",
     title: "¿Qué es la regeneración ósea guiada y cuándo se necesita?",
     subtitle: "Cirugía avanzada, planificación, precisión y experiencia.",
     description:
@@ -41,6 +45,7 @@ export const episodes = [
   },
   {
     number: "01",
+    slug: "periodontitis-y-encias",
     title: "¿La periodontitis tiene cura? Todo sobre tus encías",
     subtitle: "Encías, inflamación, prevención y salud oral de largo plazo.",
     description:
@@ -51,6 +56,7 @@ export const episodes = [
   },
   {
     number: "04",
+    slug: "dientes-fijos-en-48-horas",
     title: "¿Dientes fijos en 48 horas o puro marketing?",
     subtitle: "Expectativas reales, tecnología y responsabilidad frente a las promesas clínicas.",
     description:
