@@ -8,9 +8,10 @@ import { YouTubePreview } from "../components/media/YouTubePreview";
 import { ContactForm } from "../components/forms/ContactForm";
 import { ScrollMotion } from "../components/motion/ScrollMotion";
 import { MapSection } from "../components/sections/MapSection";
-import { media } from "../data/media";
+import { cloudinaryAssets, cloudinaryThumbnails, media } from "../data/media";
 import { siteContent } from "../data/content";
 import { episodes } from "../data/episodes";
+import { youtubeId } from "../lib/youtube";
 
 const maxLizanaUrl = "https://88bbe045.sqh-sonrisas-que-hablan.pages.dev/#max";
 
@@ -60,7 +61,7 @@ function Hero() {
           <YouTubePreview
             url={episodes[1].embed}
             title="Ortodoncia en adultos: mitos y verdades"
-            poster="/hero-podcast-cover.jpg"
+            poster={cloudinaryAssets.heroPoster}
             large
           />
         </div>
@@ -174,7 +175,11 @@ function Season() {
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {seasonEpisodes.map((episode) => (
             <article key={episode.number} className="reveal overflow-hidden rounded-[1.5rem] border border-ri-ink/10 bg-white shadow-editorial transition duration-500 hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(11,13,18,0.16)]">
-              <YouTubePreview url={episode.embed} title={episode.title} />
+              <YouTubePreview
+                url={episode.embed}
+                title={episode.title}
+                thumbnailUrl={cloudinaryThumbnails[youtubeId(episode.embed)]}
+              />
               <div className="p-4 md:p-5">
                 <p className="text-xs font-black uppercase tracking-[0.28em] text-ri-blue">Capítulo {episode.number}</p>
                 <h3 className="mt-2 text-lg font-black leading-tight md:text-xl">
@@ -243,10 +248,10 @@ function Max() {
           <p className="mt-5 text-2xl font-bold text-ri-ink/75">Trayectoria clínica, experiencia digital y mirada interdisciplinaria.</p>
           <div className="mt-5 flex flex-wrap items-center gap-4">
             <a href="https://redimplantologia.cl" target="_blank" rel="noreferrer" className="inline-flex h-12 w-44 items-center justify-center rounded-2xl border border-ri-ink/10 bg-white px-4 transition hover:-translate-y-0.5 hover:shadow-editorial">
-              <img src="/ri-logo-2024.png" alt="Red Implantología" className="max-h-7 max-w-full object-contain" />
+              <img src={cloudinaryAssets.redImplantologiaLogo} alt="Red Implantología" className="max-h-7 max-w-full object-contain" />
             </a>
             <a href="https://fullarchchile.cl/" target="_blank" rel="noreferrer" className="inline-flex h-12 w-44 items-center justify-center rounded-2xl border border-ri-ink/10 bg-white px-4 transition hover:-translate-y-0.5 hover:shadow-editorial">
-              <img src="/fullarch-logo.png" alt="Full Arch" className="max-h-8 max-w-full object-contain" />
+              <img src={cloudinaryAssets.fullArchLogo} alt="Full Arch" className="max-h-8 max-w-full object-contain" />
             </a>
           </div>
           <div className="mt-5 text-lg leading-8 text-ri-ink/70">

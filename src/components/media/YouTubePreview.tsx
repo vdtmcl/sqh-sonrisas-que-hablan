@@ -7,12 +7,13 @@ type Props = {
   title: string;
   large?: boolean;
   poster?: string;
+  thumbnailUrl?: string;
 };
 
-export function YouTubePreview({ url, title, large = false, poster }: Props) {
+export function YouTubePreview({ url, title, large = false, poster, thumbnailUrl }: Props) {
   const [playing, setPlaying] = useState(false);
   const embedUrl = `${youtubeEmbedUrl(url)}?autoplay=1&rel=0&modestbranding=1`;
-  const imageSrc = poster ?? youtubeThumbnail(url);
+  const imageSrc = poster ?? thumbnailUrl ?? youtubeThumbnail(url);
 
   if (playing) {
     return (
