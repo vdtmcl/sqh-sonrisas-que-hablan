@@ -13,8 +13,6 @@ import { siteContent } from "../data/content";
 import { episodes } from "../data/episodes";
 import { youtubeId } from "../lib/youtube";
 
-const maxLizanaUrl = "https://88bbe045.sqh-sonrisas-que-hablan.pages.dev/#max";
-
 export function Home() {
   return (
     <main className="overflow-hidden bg-white">
@@ -44,7 +42,7 @@ function Hero() {
           <p className="mt-5 max-w-2xl text-xl font-semibold leading-snug text-ri-ink/85 md:text-2xl">
             Conversaciones sobre salud, y tecnología aplicada, conducidas por el{" "}
             <a
-              href={maxLizanaUrl}
+              href="#max"
               className="font-black bg-[linear-gradient(90deg,#FF5F66,#174EFF)] bg-clip-text text-transparent transition hover:opacity-75"
             >
               Dr. Max Lizana
@@ -139,7 +137,7 @@ function PodcastFaq() {
                     {item.body.includes("Dr. Max Lizana") ? (
                       <>
                         Un podcast editorial sobre salud, tecnología aplicada y conversaciones profesionales conducido por el{" "}
-                        <a href={maxLizanaUrl} className="font-black bg-[linear-gradient(90deg,#FF5F66,#174EFF)] bg-clip-text text-transparent transition hover:opacity-75">
+                        <a href="#max" className="font-black bg-[linear-gradient(90deg,#FF5F66,#174EFF)] bg-clip-text text-transparent transition hover:opacity-75">
                           Dr. Max Lizana
                         </a>{" "}
                         desde Viña del Mar. SQH propone una mirada amplia: conversar con especialistas, ordenar criterio clínico y acercar temas complejos a una audiencia que busca entender mejor cómo cambia la salud.
