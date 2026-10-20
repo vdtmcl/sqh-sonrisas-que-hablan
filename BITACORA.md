@@ -1,5 +1,17 @@
 # BITACORA.md — SQH
 
+## CIERRE_PROTOCOLO_MULTISITIO_20261020
+
+- **Solicitud de cierre:** 2026-10-20 13:29:05, America/Santiago. Sesión de gobierno multisitio; no es una auditoría nueva del estado productivo de esta web.
+- **Objetivo y resultado:** simplificar las instrucciones de WEB VDTM NUBE y separar reglas estables de datos operativos. Versión definitiva de 3.930 caracteres entregada en el chat; Agustín confirmó «aplicado». La configuración de ChatGPT no fue inspeccionada por herramienta: la aplicación consta por confirmación del usuario.
+- **Decisiones:** una tarea a la vez; controles proporcionales al cambio; «aplica y sube»/«publica» constituye autorización específica del cambio y no requiere una segunda aprobación idéntica. Se mantienen los controles obligatorios y restricciones de las herramientas. Las referencias antiguas a pedir siempre una segunda aprobación son históricas y no deben reintroducirla frente a esta autorización vigente.
+- **Continuidad:** AGENTS conserva reglas del sitio; BITACORA mantiene estado, evidencia y pendientes; OPERATIONS conserva procedimientos. Los datos variables no se mantienen en instrucciones ni en el antiguo adjunto central. «Cierre de sesión» consolida y persiste documentación; no cierra cuentas. Registrar también hitos durante trabajos largos.
+- **NIC.cl:** quedó autorizada la gestión técnica dentro de los proyectos solicitados, con alcance y destino validados. Observación NIC.cl anterior en este chat (2026-10-20): ficha de sqh.cl accesible; nameservers rayne.ns.cloudflare.com y nikon.ns.cloudflare.com. No se guardaron cambios ni se probó escritura; no revalidado al cierre.
+- **Cambio de este cierre:** únicamente BITACORA.md en este repositorio. Rama documental codex/admin-multisitio-20261008; PR #3 abierto y sin merge; base main. HEAD leído antes del cierre: 75cb84c5b4006765290fbe56fc6060d3cdac53d7. El SHA del commit de cierre queda en el historial remoto de este archivo.
+- **Validación:** lectura autenticada de AGENTS.md, BITACORA.md, árbol Git y referencia/PR en GitHub. No se ejecutaron builds, pruebas funcionales, revisión visual ni despliegues manuales por este cambio documental. No se revalidaron producción, DNS, Cloudflare ni sesiones de navegador al cierre; los snapshots anteriores conservan sus fechas y deben reconsultarse cuando sean necesarios.
+- **Límite conocido:** el entorno de ejecución local quedó indisponible; el archivo WEB_VDTM_NUBE_MULTISITIO.md abierto no pudo reemplazarse por el último texto compacto. La versión larga anterior no es la política vigente ni una fuente de estado. Retirar su uso como protocolo adjunto si aún existe; no se confirmó su retirada. Las instrucciones definitivas aplicadas por Agustín son la referencia de política.
+- **Pendientes y siguiente paso:** conservar los PR anteriores y sus dependencias sin fusionarlos por este cierre. Retomar con una tarea y sitio concretos, leer esta bitácora desde su rama/PR vigente y contrastar solo los datos necesarios. No se cambiaron código, main, producción, DNS, secretos ni permisos durante este cierre.
+
 ## ESTADO_ACTUAL
 
 Auditoría 2026-10-08 UTC. vdtmcl/sqh-sonrisas-que-hablan; main c201c232d160217c63ddbeb5f7536b2403447a41. Cloudflare sqh-sonrisas-que-hablan; cuenta 7d5cdcf87df07007a26fc926025fbfc7; sqh.cl activo.
@@ -37,4 +49,4 @@ Para resultados de validación de esta rama y preview consultar PR; no declarar 
 
 ## FUENTES_DE_DETALLE
 
-AGENTS.md, docs/OPERATIONS.md, README.md, package.json, src/, functions/, workflows y Git. Registro central en WEB VDTM NUBE para selección del sitio.
+AGENTS.md, docs/OPERATIONS.md, README.md, package.json, src/, functions/, workflows y Git. La identidad y el estado técnico se mantienen en este repositorio; la política general está en las instrucciones vigentes de WEB VDTM NUBE.
