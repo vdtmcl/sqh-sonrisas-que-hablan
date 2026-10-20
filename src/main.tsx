@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import { initializeGA4 } from "./utils/ga4";
 import React from "react";
 import ReactDOM from "react-dom/client";
