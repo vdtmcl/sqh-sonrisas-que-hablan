@@ -5,6 +5,7 @@ import { Home } from "./pages/Home";
 import { EpisodePage } from "./pages/EpisodePage";
 import { NotFound } from "./pages/NotFound";
 import { Preview } from "./pages/Preview";
+import { Signature } from "./components/layout/Signature";
 import { getEpisodeBySlug } from "./lib/episodes";
 import { episodeSeo, homeSeo, notFoundSeo, previewSeo, seoMarkup } from "./lib/seo";
 
@@ -29,7 +30,7 @@ export function renderPath(pathname: string) {
 
 function render(element: ReactElement, seo: typeof homeSeo, pathname: string) {
   return {
-    body: renderToString(<StaticRouter location={pathname}>{element}</StaticRouter>),
+    body: renderToString(<StaticRouter location={pathname}>{element}<Signature /></StaticRouter>),
     seoMarkup: seoMarkup(seo)
   };
 }
