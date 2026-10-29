@@ -1,6 +1,6 @@
 export function Signature() {
   return (
-    <div className="bg-[#292929] px-3 py-3 text-center text-white">
+    <div className="bg-[#353535] px-3 py-3 text-center text-white">
       <a
         href="https://www.vdtm.cl/"
         target="_blank"
