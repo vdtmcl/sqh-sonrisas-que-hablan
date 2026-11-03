@@ -1,8 +1,20 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { Send } from "lucide-react";
 import { siteContent } from "../../data/content";
 
 export function ContactForm() {
+  const challengeRef = useRef<HTMLDivElement>(null);
+  const widgetRef = useRef<string | null>(null);
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+    script.async = true;
+    script.onload = () => {
+      if (challengeRef.current && window.turnstile) widgetRef.current = window.turnstile.render(challengeRef.current, {sitekey:"0x4AAAAAAFxeQZQVYdWEkDiI", action:"contact"});
+    };
+    document.head.appendChild(script);
+    return () => { if (widgetRef.current) window.turnstile?.remove(widgetRef.current); script.remove(); };
+  }, []);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -30,6 +42,8 @@ export function ContactForm() {
     } catch (error) {
       setErrorMessage(error instanceof Error ? error.message : "No pudimos enviar tu mensaje.");
       setStatus("error");
+    } finally {
+      if (widgetRef.current) window.turnstile?.reset(widgetRef.current);
     }
   }
 
@@ -73,6 +87,9 @@ export function ContactForm() {
         <span className="text-sm text-ri-ink/50">(opcional, máximo 10 MB)</span>
       </div>
       <div className="flex justify-center">
+        <div ref={challengeRef} />
+      </div>
+      <div className="flex justify-center">
         <button disabled={status === "sending"} className="inline-flex w-fit items-center gap-2 rounded-full bg-ri-ink px-6 py-3 font-bold text-white transition hover:-translate-y-1 hover:bg-ri-blue disabled:cursor-wait disabled:opacity-60">
           {status === "sending" ? "Enviando…" : "Enviar mensaje"} <Send size={16} />
         </button>
@@ -82,6 +99,8 @@ export function ContactForm() {
     </form>
   );
 }
+
+declare global { interface Window { turnstile?: { render(element: HTMLElement, options: {sitekey: string; action: string}): string; reset(id: string): void; remove(id: string): void } } }
 
 function Field({ name, label, type = "text", required = false }: { name: string; label: string; type?: string; required?: boolean }) {
   return (

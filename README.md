@@ -62,7 +62,7 @@ Configuración de Cloudflare Pages:
 
 ## Formulario y Resend
 
-El formulario envía los mensajes a `formulario@sqh.cl` mediante `functions/api/contact.ts`, incluyendo un archivo adjunto opcional de hasta 10 MB. En Cloudflare Pages configura como variables protegidas:
+El formulario envía los mensajes a `contacto@sqh.cl` mediante `functions/api/contact.ts`, incluyendo un archivo adjunto opcional de hasta 10 MB. En Cloudflare Pages configura como variables protegidas:
 
 - `RESEND_API_KEY`: clave de API de Resend.
 - `RESEND_FROM_EMAIL`: remitente de un dominio verificado en Resend, por ejemplo `SQH Web <formulario@sqh.cl>`.
