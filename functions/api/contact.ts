@@ -1,4 +1,4 @@
-const DESTINATION_EMAIL = "formulario@sqh.cl";
+const DESTINATION_EMAIL = "contacto@sqh.cl";
 const MAX_ATTACHMENT_SIZE = 10 * 1024 * 1024;
 const ALLOWED_ATTACHMENT_TYPES = new Set([
   "application/pdf",
@@ -17,7 +17,10 @@ type PagesContext = {
   request: Request;
   env: {
     RESEND_API_KEY?: string;
+    RESEND_API_KEY_SQH?: string;
     RESEND_FROM_EMAIL?: string;
+    TURNSTILE_SECRET?: string;
+    TURNSTILE_HOSTNAMES?: string;
   };
 };
 
@@ -50,7 +53,8 @@ function toBase64(buffer: ArrayBuffer) {
 }
 
 export async function onRequestPost({ request, env }: PagesContext) {
-  if (!env.RESEND_API_KEY) {
+  const resendApiKey = env.RESEND_API_KEY_SQH || env.RESEND_API_KEY;
+  if (!resendApiKey) {
     return json({ error: "El servicio de correo no está configurado." }, 500);
   }
 
@@ -70,9 +74,32 @@ export async function onRequestPost({ request, env }: PagesContext) {
   const reason = String(form.get("reason") ?? "").trim();
   const message = String(form.get("message") ?? "").trim();
   const attachment = form.get("attachment");
+  const token = form.get("cf-turnstile-response");
+
+  if (!env.TURNSTILE_SECRET || typeof token !== "string" || !token || token.length > 2048) {
+    return json({ error: "Completa la verificación de seguridad." }, 403);
+  }
+  try {
+    const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      body: new URLSearchParams({ secret: env.TURNSTILE_SECRET, response: token }),
+      signal: AbortSignal.timeout(10000),
+    });
+    const result = await response.json() as { success?: boolean; action?: string; hostname?: string };
+    const allowedHosts = (env.TURNSTILE_HOSTNAMES || "sqh.cl").split(",").map(host => host.trim()).filter(Boolean);
+    if (!response.ok || !result.success || result.action !== "contact" || !allowedHosts.includes(result.hostname || "")) {
+      return json({ error: "No se pudo verificar la solicitud." }, 403);
+    }
+  } catch {
+    return json({ error: "No se pudo verificar la solicitud." }, 403);
+  }
 
   if (!name || !email || !reason || !message) {
     return json({ error: "Completa todos los campos obligatorios." }, 400);
+  }
+
+  if ([name, role, institution, email, whatsapp, reason].some(value => value.length > 200 || /[\r\n]/.test(value))) {
+    return json({ error: "Revisa los datos ingresados." }, 400);
   }
 
   if (!/^\S+@\S+\.\S+$/.test(email)) {
@@ -117,7 +144,7 @@ export async function onRequestPost({ request, env }: PagesContext) {
   const resendResponse = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      Authorization: `Bearer ${resendApiKey}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
