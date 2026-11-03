@@ -17,6 +17,7 @@ type PagesContext = {
   request: Request;
   env: {
     RESEND_API_KEY?: string;
+    RESEND_API_KEY_SQH?: string;
     RESEND_FROM_EMAIL?: string;
     TURNSTILE_SECRET?: string;
     TURNSTILE_HOSTNAMES?: string;
@@ -52,7 +53,8 @@ function toBase64(buffer: ArrayBuffer) {
 }
 
 export async function onRequestPost({ request, env }: PagesContext) {
-  if (!env.RESEND_API_KEY) {
+  const resendApiKey = env.RESEND_API_KEY_SQH || env.RESEND_API_KEY;
+  if (!resendApiKey) {
     return json({ error: "El servicio de correo no está configurado." }, 500);
   }
 
@@ -142,7 +144,7 @@ export async function onRequestPost({ request, env }: PagesContext) {
   const resendResponse = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      Authorization: `Bearer ${resendApiKey}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({

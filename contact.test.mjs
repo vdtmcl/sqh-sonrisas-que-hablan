@@ -7,6 +7,7 @@ test('envía únicamente al buzón de contacto de SQH', async () => {
   let payload;
   globalThis.fetch = async (url, options) => {
     if (String(url).includes('siteverify')) return Response.json({ success:true, action:'contact', hostname:'sqh.cl' });
+    assert.equal(options.headers.Authorization, 'Bearer production-test');
     payload = JSON.parse(options.body);
     return new Response('{}', { status: 200 });
   };
@@ -14,7 +15,7 @@ test('envía únicamente al buzón de contacto de SQH', async () => {
     const data = new FormData();
     for (const [key, value] of Object.entries({name:'Prueba', email:'test@example.com', reason:'Consulta', message:'Mensaje', 'cf-turnstile-response':'token'})) data.set(key, value);
     const request = new Request('https://sqh.cl/api/contact', { method:'POST', body:data });
-    const result = await onRequestPost({ request, env:{ RESEND_API_KEY:'fake', TURNSTILE_SECRET:'fake' } });
+    const result = await onRequestPost({ request, env:{ RESEND_API_KEY:'fake', RESEND_API_KEY_SQH:'production-test', TURNSTILE_SECRET:'fake' } });
     assert.equal(result.status, 200);
     assert.deepEqual(payload.to, ['contacto@sqh.cl']);
   } finally { globalThis.fetch = originalFetch; }
