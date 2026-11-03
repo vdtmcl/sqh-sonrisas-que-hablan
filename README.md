@@ -62,10 +62,14 @@ Configuración de Cloudflare Pages:
 
 ## Formulario y Resend
 
-El formulario envía los mensajes a `contacto@sqh.cl` mediante `functions/api/contact.ts`, incluyendo un archivo adjunto opcional de hasta 10 MB. En Cloudflare Pages configura como variables protegidas:
+El formulario envía los mensajes a `contacto@sqh.cl` mediante `functions/api/contact.ts`, incluyendo un archivo adjunto opcional de hasta 10 MB. Turnstile se valida en el servidor antes del envío. En Cloudflare Pages:
 
-- `RESEND_API_KEY`: clave de API de Resend.
-- `RESEND_FROM_EMAIL`: remitente de un dominio verificado en Resend, por ejemplo `SQH Web <formulario@sqh.cl>`.
+- Producción usa el secreto `RESEND_API_KEY_SQH`; la función admite `RESEND_API_KEY` como alternativa para vista previa.
+- `TURNSTILE_SECRET` es un secreto independiente de Resend; `TURNSTILE_HOSTNAMES` define los hosts aceptados cuando se configura para vista previa. En producción, el host predeterminado es `sqh.cl`.
+- `RESEND_FROM_EMAIL` configura el remitente bajo el dominio verificado `sqh.cl`.
+- Las claves de Resend de producción y vista previa son independientes y están restringidas al envío desde `sqh.cl`. No registrar sus valores en el repositorio.
+
+El formulario se publicó mediante el PR #9 (commit `17a01ae`). Se comprobaron compilación, vista previa y verificación de datos inválidos; el mensaje de prueba autorizado a `contacto@sqh.cl` figura como Delivered en Resend. No se verificó visualmente su recepción en Zoho. Para recuperar el comportamiento anterior, revertir el PR mediante un nuevo cambio y verificar el despliegue.
 
 ## Rutas
 
