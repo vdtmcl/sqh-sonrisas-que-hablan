@@ -19,7 +19,7 @@ const siteName = "SQH | Sonrisas que Hablan";
 const hostUrl = `${siteUrl}/#max`;
 
 const homeDescription =
-  "SQH es un podcast conducido por Max Lizana, implantólogo y fundador de Red Implantología en Viña del Mar. Conversaciones de alto nivel sobre salud, tecnología aplicada, criterio clínico y colaboración interdisciplinaria.";
+  "Podcast conducido por Max Lizana, implantólogo y fundador de Red Implantología en Viña del Mar, sobre salud, tecnología aplicada y criterio clínico.";
 
 export const homeSeo: PageSeo = {
   title: "SQH | Sonrisas que Hablan — Podcast sobre salud y tecnología",
@@ -27,8 +27,8 @@ export const homeSeo: PageSeo = {
   canonical: `${siteUrl}/`,
   robots: "index,follow",
   ogType: "website",
-  image: "https://res.cloudinary.com/l9grsc6p/image/upload/v1788135804/og-sqh-podcast.png",
-  imageAlt: "Logo SQH Podcast",
+  image: "https://sqh.cl/social-share.jpg",
+  imageAlt: "Logo SQH Podcast centrado sobre fondo negro",
   structuredData: {
     "@context": "https://schema.org",
     "@graph": [
@@ -155,7 +155,7 @@ export function seoMarkup(seo: PageSeo) {
     <meta data-seo-managed="true" property="og:url" content="${seo.canonical}" />
     <meta data-seo-managed="true" property="og:image" content="${seo.image}" />
     <meta data-seo-managed="true" property="og:image:alt" content="${escapeHtml(seo.imageAlt)}" />
-    <meta data-seo-managed="true" name="twitter:card" content="summary_large_image" />
+    <meta data-seo-managed="true" name="twitter:card" content="summary" />
     <meta data-seo-managed="true" name="twitter:title" content="${escapeHtml(seo.title)}" />
     <meta data-seo-managed="true" name="twitter:description" content="${escapeHtml(seo.description)}" />
     <meta data-seo-managed="true" name="twitter:image" content="${seo.image}" />
