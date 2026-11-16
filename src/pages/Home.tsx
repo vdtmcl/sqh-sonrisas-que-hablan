@@ -54,8 +54,20 @@ function Hero() {
             desde Viña del Mar.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <Button href="#podcast" variant="secondary" className="!border-ri-red !bg-ri-red font-normal">¿Qué es SQH Podcast?</Button>
-            <Button href="#contacto" variant="primary">Quiero participar</Button>
+            <Button
+              href="#podcast"
+              variant="secondary"
+              className="!border-ri-ink !bg-ri-ink !text-white hover:!border-ri-ink hover:!bg-ri-ink"
+            >
+              ¿Qué es SQH Podcast?
+            </Button>
+            <Button
+              href="#contacto"
+              variant="primary"
+              className="bg-[linear-gradient(90deg,#FF5F66,#174EFF)] !text-white !font-black hover:bg-[linear-gradient(90deg,#FF5F66,#174EFF)]"
+            >
+              Quiero participar
+            </Button>
           </div>
           <p className="mt-4 max-w-md text-sm text-ri-ink/50">{siteContent.hero.microcopy}</p>
         </div>
