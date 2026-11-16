@@ -1,6 +1,6 @@
 import type { Episode } from "./episodes";
 import { episodePath } from "./episodes";
-import { cloudinaryThumbnails, media } from "../data/media";
+import { episodeThumbnails, media } from "../data/media";
 import { youtubeId } from "./youtube";
 
 export type PageSeo = {
@@ -74,7 +74,7 @@ function episodeDescription(episode: Episode) {
 
 export function episodeSeo(episode: Episode): PageSeo {
   const id = youtubeId(episode.embed);
-  const image = new URL(cloudinaryThumbnails[id] || media.videoPoster.src, siteUrl).href;
+  const image = new URL(episodeThumbnails[id] || media.videoPoster.src, siteUrl).href;
   const canonical = `${siteUrl}${episodePath(episode.slug)}`;
   const description = episodeDescription(episode);
 

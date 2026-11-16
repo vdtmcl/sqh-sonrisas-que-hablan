@@ -3,13 +3,13 @@ import { useState } from "react";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
 import { Button } from "../components/ui/Button";
-import { CloudinaryReadyMedia } from "../components/media/CloudinaryReadyMedia";
+import { ResponsiveImage } from "../components/media/ResponsiveImage";
 import { YouTubePreview } from "../components/media/YouTubePreview";
 import { ContactForm } from "../components/forms/ContactForm";
 import { ScrollMotion } from "../components/motion/ScrollMotion";
 import { MapSection } from "../components/sections/MapSection";
 import { SEOHead } from "../components/seo/SEOHead";
-import { cloudinaryAssets, cloudinaryThumbnails, media } from "../data/media";
+import { episodeThumbnails, media, mediaAssets } from "../data/media";
 import { siteContent } from "../data/content";
 import { episodes } from "../data/episodes";
 import { episodePath } from "../lib/episodes";
@@ -63,7 +63,7 @@ function Hero() {
           <YouTubePreview
             url={episodes[1].embed}
             title="Ortodoncia en adultos: mitos y verdades"
-            poster={cloudinaryAssets.heroPoster}
+            poster={mediaAssets.heroPoster}
             href={episodePath(episodes[1].slug)}
             large
           />
@@ -180,7 +180,7 @@ function Season() {
               <YouTubePreview
                 url={episode.embed}
                 title={episode.title}
-                thumbnailUrl={cloudinaryThumbnails[youtubeId(episode.embed)]}
+                thumbnailUrl={episodeThumbnails[youtubeId(episode.embed)]}
                 href={episodePath(episode.slug)}
               />
               <div className="p-4 md:p-5">
@@ -242,7 +242,7 @@ function Max() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-8">
         <div className="reveal relative">
           <div className="aspect-square overflow-hidden rounded-[2.5rem] shadow-editorial">
-            <CloudinaryReadyMedia asset={media.max} className="aspect-square w-full object-cover" />
+            <ResponsiveImage src={media.max.src} alt={media.max.alt} className="aspect-square w-full object-cover" />
           </div>
         </div>
         <div className="reveal">
@@ -251,10 +251,10 @@ function Max() {
           <p className="mt-5 text-2xl font-bold text-ri-ink/75">Trayectoria clínica, experiencia digital y mirada interdisciplinaria.</p>
           <div className="mt-5 flex flex-wrap items-center gap-4">
             <a href="https://redimplantologia.cl" target="_blank" rel="noreferrer" className="inline-flex h-12 w-44 items-center justify-center rounded-2xl border border-ri-ink/10 bg-white px-4 transition hover:-translate-y-0.5 hover:shadow-editorial">
-              <img src={cloudinaryAssets.redImplantologiaLogo} alt="Red Implantología" className="max-h-7 max-w-full object-contain" />
+              <img src={mediaAssets.redImplantologiaLogo} alt="Red Implantología" className="max-h-7 max-w-full object-contain" />
             </a>
             <a href="https://fullarchchile.cl/" target="_blank" rel="noreferrer" className="inline-flex h-12 w-44 items-center justify-center rounded-2xl border border-ri-ink/10 bg-white px-4 transition hover:-translate-y-0.5 hover:shadow-editorial">
-              <img src={cloudinaryAssets.fullArchLogo} alt="Full Arch" className="max-h-8 max-w-full object-contain" />
+              <img src={mediaAssets.fullArchLogo} alt="Full Arch" className="max-h-8 max-w-full object-contain" />
             </a>
           </div>
           <div className="mt-5 text-lg leading-8 text-ri-ink/70">

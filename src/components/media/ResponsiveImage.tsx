@@ -5,7 +5,6 @@ type Props = {
   alt: string;
   className?: string;
   priority?: boolean;
-  cloudinaryPublicId?: string;
 };
 
 export function ResponsiveImage({ src, alt, className = "", priority = false }: Props) {
