@@ -57,7 +57,7 @@ export const homeSeo: PageSeo = {
         jobTitle: "Cirujano dentista",
         description: "Especialista en Implantología Oral, fundador y director clínico de Red Implantología.",
         url: `${siteUrl}/#max`,
-        image: media.max.src,
+        image: new URL(media.max.src, siteUrl).href,
         affiliation: {
           "@type": "Organization",
           name: "Red Implantología",
@@ -74,7 +74,7 @@ function episodeDescription(episode: Episode) {
 
 export function episodeSeo(episode: Episode): PageSeo {
   const id = youtubeId(episode.embed);
-  const image = cloudinaryThumbnails[id] || media.videoPoster.src;
+  const image = new URL(cloudinaryThumbnails[id] || media.videoPoster.src, siteUrl).href;
   const canonical = `${siteUrl}${episodePath(episode.slug)}`;
   const description = episodeDescription(episode);
 
