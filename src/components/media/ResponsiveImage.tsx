@@ -1,5 +1,3 @@
-import { cloudinaryImage } from "../../lib/cloudinary";
-import { env } from "../../lib/env";
 import type { ImgHTMLAttributes } from "react";
 
 type Props = {
@@ -10,9 +8,8 @@ type Props = {
   cloudinaryPublicId?: string;
 };
 
-export function ResponsiveImage({ src, alt, className = "", priority = false, cloudinaryPublicId }: Props) {
-  const source = env.cloudinaryCloudName && cloudinaryPublicId ? cloudinaryPublicId : src;
-  const imageSrc = cloudinaryImage(source, priority ? 1800 : 1200);
+export function ResponsiveImage({ src, alt, className = "", priority = false }: Props) {
+  const imageSrc = src;
   const priorityAttribute = { fetchpriority: priority ? "high" : "auto" } as unknown as ImgHTMLAttributes<HTMLImageElement>;
 
   return (
