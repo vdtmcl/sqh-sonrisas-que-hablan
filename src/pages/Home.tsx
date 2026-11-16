@@ -60,13 +60,19 @@ function Hero() {
           <p className="mt-4 max-w-md text-sm text-ri-ink/50">{siteContent.hero.microcopy}</p>
         </div>
         <div className="reveal relative w-full self-center">
-          <YouTubePreview
-            url={episodes[1].embed}
-            title="Ortodoncia en adultos: mitos y verdades"
-            poster={mediaAssets.heroPoster}
-            href={episodePath(episodes[1].slug)}
-            large
-          />
+          <div className="rounded-[1.75rem] border border-ri-ink/10 bg-white p-3 shadow-editorial md:p-4">
+            <div className="mb-3 flex items-center justify-between gap-4 px-2 py-1">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.28em] text-ri-red">Nueva temporada</p>
+                <p className="mt-1 text-sm font-black text-ri-ink/70">Temporada 2 · Capítulo 1</p>
+              </div>
+            </div>
+            <YouTubePreview
+              url="https://youtu.be/rEq6SwzHD1Q?si=k1wKAhAnmEsUHHE4"
+              title="Temporada 2, capítulo 1 de SQH Podcast"
+              large
+            />
+          </div>
         </div>
       </div>
     </section>
