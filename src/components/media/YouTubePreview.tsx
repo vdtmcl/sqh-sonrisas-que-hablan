@@ -43,7 +43,7 @@ export function YouTubePreview({ url, title, large = false, poster, thumbnailUrl
       <img
         src={imageSrc}
         alt=""
-        loading={large ? "eager" : "lazy"}
+        loading="eager"
         decoding="async"
         {...priorityAttribute}
         className={`h-full w-full object-cover ${large ? "" : "transition duration-700 group-hover:scale-105"}`}

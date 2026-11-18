@@ -6,7 +6,6 @@ import { Button } from "../components/ui/Button";
 import { ResponsiveImage } from "../components/media/ResponsiveImage";
 import { YouTubePreview } from "../components/media/YouTubePreview";
 import { ContactForm } from "../components/forms/ContactForm";
-import { ScrollMotion } from "../components/motion/ScrollMotion";
 import { MapSection } from "../components/sections/MapSection";
 import { SEOHead } from "../components/seo/SEOHead";
 import { episodeThumbnails, media, mediaAssets } from "../data/media";
@@ -20,7 +19,6 @@ export function Home() {
   return (
     <main className="overflow-hidden bg-white">
       <SEOHead seo={homeSeo} />
-      <ScrollMotion />
       <Header />
       <Hero />
       <Season />

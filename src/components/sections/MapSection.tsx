@@ -12,7 +12,7 @@ export function MapSection() {
           <div className="relative min-h-[360px] overflow-hidden rounded-[1.5rem] border border-ri-ink/10 bg-white shadow-editorial transition duration-500 hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(11,13,18,0.15)]">
             <iframe
               title="Mapa de Red Implantología en Viña del Mar"
-              loading="lazy"
+              loading="eager"
               className="h-full min-h-[360px] w-full"
               src={mapSrc}
             />

@@ -10,7 +10,7 @@ export function ContactForm() {
     script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
     script.async = true;
     script.onload = () => {
-      if (challengeRef.current && window.turnstile) widgetRef.current = window.turnstile.render(challengeRef.current, {sitekey:"0x4AAAAAAFxeQZQVYdWEkDiI", action:"contact"});
+      if (challengeRef.current && window.turnstile) widgetRef.current = window.turnstile.render(challengeRef.current, {sitekey:"0x4AAAAAAFxeQZQVYdWEkDiI", action:"contact", appearance:"interaction-only"});
     };
     document.head.appendChild(script);
     return () => { if (widgetRef.current) window.turnstile?.remove(widgetRef.current); script.remove(); };
@@ -100,7 +100,7 @@ export function ContactForm() {
   );
 }
 
-declare global { interface Window { turnstile?: { render(element: HTMLElement, options: {sitekey: string; action: string}): string; reset(id: string): void; remove(id: string): void } } }
+declare global { interface Window { turnstile?: { render(element: HTMLElement, options: {sitekey: string; action: string; appearance?: "always" | "execute" | "interaction-only"}): string; reset(id: string): void; remove(id: string): void } } }
 
 function Field({ name, label, type = "text", required = false }: { name: string; label: string; type?: string; required?: boolean }) {
   return (

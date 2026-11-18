@@ -48,10 +48,6 @@ body {
   }
 }
 
-.reveal {
-  will-change: transform, opacity;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

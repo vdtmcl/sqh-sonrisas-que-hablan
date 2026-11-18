@@ -16,7 +16,7 @@ export function ResponsiveImage({ src, alt, className = "", priority = false }: 
       src={imageSrc}
       alt={alt}
       className={className}
-      loading={priority ? "eager" : "lazy"}
+      loading="eager"
       decoding="async"
       {...priorityAttribute}
     />
