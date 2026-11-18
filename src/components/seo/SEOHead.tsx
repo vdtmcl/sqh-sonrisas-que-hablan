@@ -26,7 +26,6 @@ export function SEOHead({ seo }: Props) {
     };
 
     addMeta({ name: "description", content: seo.description });
-    addMeta({ name: "author", content: "Dr. Max Lizana" });
     addMeta({ name: "robots", content: seo.robots });
     addLink("canonical", seo.canonical);
     addMeta({ property: "og:title", content: seo.title });

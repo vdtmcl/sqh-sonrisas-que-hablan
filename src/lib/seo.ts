@@ -1,4 +1,5 @@
 import { articles } from "../data/articles";
+import { episodeVideoDates } from "../data/articleRelations";
 import type { Episode } from "./episodes";
 import { episodePath } from "./episodes";
 import { episodeThumbnails, media } from "../data/media";
@@ -79,6 +80,7 @@ export function episodeSeo(episode: Episode): PageSeo {
   const canonical = `${siteUrl}${episodePath(episode.slug)}`;
   const article = articles[episode.slug];
   const description = article?.description ?? episodeDescription(episode);
+  const videoDate = episodeVideoDates[episode.slug];
 
   return {
     title: article?.metaTitle ?? `SQH | Temporada ${episode.season}, capítulo ${Number(episode.number)}: ${episode.title}`,
@@ -91,6 +93,17 @@ export function episodeSeo(episode: Episode): PageSeo {
     structuredData: {
       "@context": "https://schema.org",
       "@graph": [
+        ...(article ? [{
+          "@type": "Article",
+          "@id": `${canonical}#article`,
+          mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+          headline: article.title,
+          description,
+          image,
+          inLanguage: "es-CL",
+          publisher: { "@type": "Organization", name: "SQH | Sonrisas que Hablan", url: siteUrl },
+          about: { "@id": `${canonical}#episode` }
+        }] : []),
         {
           "@type": "PodcastEpisode",
           "@id": `${canonical}#episode`,
@@ -109,7 +122,7 @@ export function episodeSeo(episode: Episode): PageSeo {
           description: episode.description,
           thumbnailUrl: image,
           embedUrl: `https://www.youtube.com/embed/${id}`,
-          uploadDate: undefined
+          uploadDate: videoDate
         }
       ]
     }
@@ -168,7 +181,6 @@ export function seoMarkup(seo: PageSeo) {
   return `<!-- SEO_HEAD_START -->
     <title>${escapeHtml(seo.title)}</title>
     <meta data-seo-managed="true" name="description" content="${escapeHtml(seo.description)}" />
-    <meta data-seo-managed="true" name="author" content="Dr. Max Lizana" />
     <meta data-seo-managed="true" name="robots" content="${seo.robots}" />
     <link data-seo-managed="true" rel="canonical" href="${seo.canonical}" />
     <meta data-seo-managed="true" property="og:title" content="${escapeHtml(seo.title)}" />
