@@ -1,3 +1,4 @@
+import { articles } from "../data/articles";
 import type { Episode } from "./episodes";
 import { episodePath } from "./episodes";
 import { episodeThumbnails, media } from "../data/media";
@@ -76,10 +77,11 @@ export function episodeSeo(episode: Episode): PageSeo {
   const id = youtubeId(episode.embed);
   const image = new URL(episodeThumbnails[id] || youtubeThumbnail(episode.embed), siteUrl).href;
   const canonical = `${siteUrl}${episodePath(episode.slug)}`;
-  const description = episodeDescription(episode);
+  const article = articles[episode.slug];
+  const description = article?.description ?? episodeDescription(episode);
 
   return {
-    title: `SQH | Temporada ${episode.season}, capítulo ${Number(episode.number)}: ${episode.title}`,
+    title: article?.metaTitle ?? `SQH | Temporada ${episode.season}, capítulo ${Number(episode.number)}: ${episode.title}`,
     description,
     canonical,
     robots: "index,follow",
