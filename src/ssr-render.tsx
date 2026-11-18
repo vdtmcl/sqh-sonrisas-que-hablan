@@ -2,12 +2,13 @@ import type { ReactElement } from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import { Home } from "./pages/Home";
+import { Blog } from "./pages/Blog";
 import { EpisodePage } from "./pages/EpisodePage";
 import { NotFound } from "./pages/NotFound";
 import { Preview } from "./pages/Preview";
 import { Signature } from "./components/layout/Signature";
 import { getEpisodeBySlug } from "./lib/episodes";
-import { episodeSeo, homeSeo, notFoundSeo, previewSeo, seoMarkup } from "./lib/seo";
+import { blogSeo, episodeSeo, homeSeo, notFoundSeo, previewSeo, seoMarkup } from "./lib/seo";
 
 export function renderPath(pathname: string) {
   const episodeMatch = pathname.match(/^\/episodios\/([^/]+)\/?$/);
@@ -19,6 +20,10 @@ export function renderPath(pathname: string) {
 
   if (episode) {
     return render(<EpisodePage episode={episode} />, episodeSeo(episode), pathname);
+  }
+
+  if (pathname === "/blog") {
+    return render(<Blog />, blogSeo, pathname);
   }
 
   if (pathname === "/preview") {

@@ -114,6 +114,28 @@ export function episodeSeo(episode: Episode): PageSeo {
   };
 }
 
+export const blogSeo: PageSeo = {
+  title: "Blog de SQH | Sonrisas que Hablan",
+  description:
+    "Blog de SQH Podcast con notas vinculadas a sus entrevistas sobre salud, tecnología aplicada y colaboración interdisciplinaria.",
+  canonical: `${siteUrl}/blog`,
+  robots: "index,follow",
+  ogType: "website",
+  image: "https://sqh.cl/social-share.jpg",
+  imageAlt: "SQH Podcast, Sonrisas que Hablan",
+  structuredData: {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${siteUrl}/blog#collection`,
+    url: `${siteUrl}/blog`,
+    name: "Blog de SQH | Sonrisas que Hablan",
+    description:
+      "Notas vinculadas a las entrevistas de SQH Podcast sobre salud, tecnología aplicada y colaboración interdisciplinaria.",
+    inLanguage: "es-CL",
+    isPartOf: { "@id": `${siteUrl}/#website` }
+  }
+};
+
 export const previewSeo: PageSeo = {
   title: "Vista previa | SQH",
   description: "Vista previa técnica de componentes de SQH.",

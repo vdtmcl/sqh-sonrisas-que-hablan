@@ -70,6 +70,7 @@ El formulario envía los mensajes a `contacto@sqh.cl` mediante `functions/api/co
 ## Rutas
 
 - `/`: sitio one page.
+- `/blog`: índice de notas del podcast.
 - `/preview`: revisión rápida de componentes y dirección visual.
 - `*`: 404 simple.
 

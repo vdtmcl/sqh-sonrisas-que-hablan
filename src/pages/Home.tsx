@@ -235,14 +235,25 @@ function Season() {
                         episode.guest
                       )}
                     </p>
-                    <a
-                      href={episode.embed}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-4 inline-flex rounded-full bg-ri-ink px-5 py-3 text-sm font-black text-white transition hover:-translate-y-1 hover:bg-ri-blue"
-                    >
-                      Abrir en YouTube
-                    </a>
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      <a
+                        href={episode.embed}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex rounded-full bg-ri-ink px-5 py-3 text-sm font-black text-white transition hover:-translate-y-1 hover:bg-ri-blue"
+                      >
+                        Abrir en YouTube
+                      </a>
+                      <button
+                        type="button"
+                        disabled
+                        aria-disabled="true"
+                        title="Disponible cuando publiquemos la nota"
+                        className="inline-flex cursor-not-allowed rounded-full border border-ri-ink/15 px-5 py-3 text-sm font-black text-ri-ink/45"
+                      >
+                        Abrir blog
+                      </button>
+                    </div>
                   </div>
                 </details>
               </div>

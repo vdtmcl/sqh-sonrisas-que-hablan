@@ -4,6 +4,7 @@ import { dirname, resolve } from "node:path";
 
 const routes = [
   "/",
+  "/blog",
   "/episodios/ortodoncia-en-adultos",
   "/episodios/kinesiologia-y-odontologia",
   "/episodios/blanqueamiento-y-salud-dental",
