@@ -13,7 +13,7 @@ export function Signature() {
           alt="VDTM.cl"
           width="2170"
           height="725"
-          loading="lazy"
+          loading="eager"
           decoding="async"
           className="h-[1.5em] w-auto object-contain"
         />
