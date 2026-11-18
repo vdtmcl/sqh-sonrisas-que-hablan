@@ -184,6 +184,25 @@ function Season() {
   return (
     <section id="temporada" className="section bg-white">
       <div className="mx-auto max-w-[92rem] px-5 lg:px-10">
+        <div className="mb-16">
+          <div className="reveal mx-auto max-w-4xl text-center">
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-ri-blue md:text-sm">Nueva temporada</p>
+            <h2 className="mt-4 font-serif text-4xl leading-none md:text-6xl">Temporada 2</h2>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            <article className="reveal overflow-hidden rounded-[1.5rem] border border-ri-ink/10 bg-white shadow-editorial">
+              <YouTubePreview
+                url="https://youtu.be/rEq6SwzHD1Q?si=k1wKAhAnmEsUHHE4"
+                title="Temporada 2, capítulo 1 de SQH Podcast"
+              />
+              <div className="p-4 md:p-5">
+                <p className="text-xs font-black uppercase tracking-[0.28em] text-ri-blue">Temporada 2</p>
+                <h3 className="mt-2 text-lg font-black leading-tight md:text-xl">Capítulo 7</h3>
+              </div>
+            </article>
+          </div>
+        </div>
+
         <div className="reveal mx-auto max-w-4xl text-center">
           <p className="text-xs font-black uppercase tracking-[0.3em] text-ri-blue md:text-sm">Temporada inaugural</p>
           <h2 className="mt-4 font-serif text-4xl leading-none md:text-6xl">Temporada 1</h2>
@@ -213,49 +232,25 @@ function Season() {
                   )}
                 </h3>
                 <p className="mt-3 text-sm font-bold text-ri-blue">{episode.subtitle}</p>
-                <details className="group mt-4 rounded-2xl border border-ri-ink/10 transition duration-300 hover:border-ri-blue/40">
-                  <summary className="flex w-full cursor-pointer list-none items-center justify-between rounded-2xl px-4 py-3 text-sm font-black transition hover:text-ri-blue">
-                    <span className="group-open:hidden">Ver más</span>
-                    <span className="hidden group-open:inline">Ver menos</span>
-                    <ChevronDown className="shrink-0 transition group-open:rotate-180" size={16} />
-                  </summary>
-                  <div className="px-4 pb-4">
-                    <p className="text-sm leading-6 text-ri-ink/65">{episode.description}</p>
-                    <p className="mt-4 border-l-2 border-ri-red pl-4 text-sm font-bold">{episode.idea}</p>
-                    <p className="mt-3 text-sm text-ri-ink/55">
-                      {episode.guest.includes("Dr. Max Lizana") ? (
-                        <>
-                          Conduce{" "}
-                          <a href="#max" className="font-black bg-[linear-gradient(90deg,#FF5F66,#174EFF)] bg-clip-text text-transparent transition hover:opacity-75">
-                            Dr. Max Lizana
-                          </a>
-                          .
-                        </>
-                      ) : (
-                        episode.guest
-                      )}
-                    </p>
-                    <div className="mt-4 flex flex-wrap gap-3">
-                      <a
-                        href={episode.embed}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex rounded-full bg-ri-ink px-5 py-3 text-sm font-black text-white transition hover:-translate-y-1 hover:bg-ri-blue"
-                      >
-                        Abrir en YouTube
-                      </a>
-                      <button
-                        type="button"
-                        disabled
-                        aria-disabled="true"
-                        title="Disponible cuando publiquemos la nota"
-                        className="inline-flex cursor-not-allowed rounded-full border border-ri-ink/15 px-5 py-3 text-sm font-black text-ri-ink/45"
-                      >
-                        Abrir blog
-                      </button>
-                    </div>
-                  </div>
-                </details>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    disabled
+                    aria-disabled="true"
+                    title="Disponible cuando publiquemos la nota"
+                    className="inline-flex cursor-not-allowed rounded-full bg-[linear-gradient(90deg,#FF5F66,#174EFF)] px-5 py-3 text-sm font-black text-white shadow-[0_12px_30px_rgba(11,13,18,0.16)] transition hover:-translate-y-1 hover:opacity-90 focus-visible:ring-4 focus-visible:ring-ri-blue/20"
+                  >
+                    Abrir blog
+                  </button>
+                  <a
+                    href={episode.embed}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex rounded-full bg-ri-ink px-5 py-3 text-sm font-black text-white transition hover:-translate-y-1 hover:bg-ri-blue"
+                  >
+                    Abrir en YouTube
+                  </a>
+                </div>
               </div>
             </article>
           ))}
