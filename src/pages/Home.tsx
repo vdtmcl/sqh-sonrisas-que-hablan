@@ -190,14 +190,36 @@ function Season() {
             <h2 className="mt-4 font-serif text-4xl leading-none md:text-6xl">Temporada 2</h2>
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            <article className="reveal overflow-hidden rounded-[1.5rem] border border-ri-ink/10 bg-white shadow-editorial">
+            <article className="reveal overflow-hidden rounded-[1.5rem] border border-ri-ink/10 bg-white shadow-editorial transition duration-500 hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(11,13,18,0.16)]">
               <YouTubePreview
                 url="https://youtu.be/rEq6SwzHD1Q?si=k1wKAhAnmEsUHHE4"
-                title="Temporada 2, capítulo 1 de SQH Podcast"
+                title="Capítulo 7 de SQH Podcast: Proveedores de excelencia"
               />
               <div className="p-4 md:p-5">
-                <p className="text-xs font-black uppercase tracking-[0.28em] text-ri-blue">Temporada 2</p>
-                <h3 className="mt-2 text-lg font-black leading-tight md:text-xl">Capítulo 7</h3>
+                <p className="text-xs font-black uppercase tracking-[0.28em] text-ri-blue">Capítulo 7</p>
+                <h3 className="mt-2 text-lg font-black leading-tight md:text-xl">Proveedores de excelencia</h3>
+                <p className="mt-3 text-sm font-bold text-ri-blue">
+                  Una conversación sobre el valor de contar con proveedores que acompañan, resuelven y aportan confianza al trabajo de los equipos de salud.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    disabled
+                    aria-disabled="true"
+                    title="Disponible cuando publiquemos la nota"
+                    className="inline-flex cursor-not-allowed rounded-full bg-[linear-gradient(90deg,#FF5F66,#174EFF)] px-5 py-3 text-sm font-black text-white shadow-[0_12px_30px_rgba(11,13,18,0.16)] transition hover:-translate-y-1 hover:opacity-90 focus-visible:ring-4 focus-visible:ring-ri-blue/20"
+                  >
+                    Abrir blog
+                  </button>
+                  <a
+                    href="https://youtu.be/rEq6SwzHD1Q?si=k1wKAhAnmEsUHHE4"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex rounded-full bg-ri-ink px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-1 hover:bg-ri-ink"
+                  >
+                    Abrir en YouTube
+                  </a>
+                </div>
               </div>
             </article>
           </div>
@@ -246,7 +268,7 @@ function Season() {
                     href={episode.embed}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex rounded-full bg-ri-ink px-5 py-3 text-sm font-black text-white transition hover:-translate-y-1 hover:bg-ri-blue"
+                    className="inline-flex rounded-full bg-ri-ink px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-1 hover:bg-ri-ink"
                   >
                     Abrir en YouTube
                   </a>
