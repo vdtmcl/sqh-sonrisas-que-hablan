@@ -11,6 +11,7 @@ const routes = [
   "/episodios/regeneracion-osea-guiada",
   "/episodios/periodontitis-y-encias",
   "/episodios/dientes-fijos-en-48-horas",
+  "/episodios/proveedores-de-excelencia",
   "/preview"
 ];
 

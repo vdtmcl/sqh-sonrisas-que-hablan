@@ -1,5 +1,18 @@
 export const episodes = [
   {
+    season: 2,
+    number: "07",
+    slug: "proveedores-de-excelencia",
+    title: "Proveedores de excelencia",
+    subtitle: "Una conversación sobre el valor de contar con proveedores que acompañan, resuelven y aportan confianza al trabajo de los equipos de salud.",
+    description:
+      "El capítulo aborda el papel de los proveedores que acompañan a los equipos de salud, resuelven sus necesidades y contribuyen a construir relaciones de confianza. La conversación presenta una mirada sobre la excelencia en la provisión de servicios para el trabajo clínico.",
+    idea: "Un proveedor de excelencia acompaña, resuelve y contribuye a generar confianza en los equipos de salud.",
+    guest: undefined,
+    embed: "https://youtu.be/rEq6SwzHD1Q?si=k1wKAhAnmEsUHHE4"
+  },
+  {
+    season: 1,
     number: "05",
     slug: "kinesiologia-y-odontologia",
     title: "Kinesiología & Odontología",
@@ -11,6 +24,7 @@ export const episodes = [
     embed: "https://youtu.be/L6RkjrPqUqI"
   },
   {
+    season: 1,
     number: "06",
     slug: "ortodoncia-en-adultos",
     title: "Ortodoncia en adultos: mitos y verdades",
@@ -22,6 +36,7 @@ export const episodes = [
     embed: "https://youtu.be/HPbP7203h1w?si=tSbIN2p--3YElEve"
   },
   {
+    season: 1,
     number: "03",
     slug: "blanqueamiento-y-salud-dental",
     title: "¿El blanqueamiento debilita tus dientes?",
@@ -33,6 +48,7 @@ export const episodes = [
     embed: "https://youtu.be/r1JEaAVWSOA?si=L_rDxQh6bRsv-zJO"
   },
   {
+    season: 1,
     number: "02",
     slug: "regeneracion-osea-guiada",
     title: "¿Qué es la regeneración ósea guiada y cuándo se necesita?",
@@ -44,6 +60,7 @@ export const episodes = [
     embed: "https://youtu.be/fC3kelLUJH8?si=nd8seBbtGjeBvv-L"
   },
   {
+    season: 1,
     number: "01",
     slug: "periodontitis-y-encias",
     title: "¿La periodontitis tiene cura? Todo sobre tus encías",
@@ -55,6 +72,7 @@ export const episodes = [
     embed: "https://youtu.be/DneKThi_S54?si=3lvf5k8QoiZCtYPj"
   },
   {
+    season: 1,
     number: "04",
     slug: "dientes-fijos-en-48-horas",
     title: "¿Dientes fijos en 48 horas o puro marketing?",

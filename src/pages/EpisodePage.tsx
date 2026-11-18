@@ -20,7 +20,7 @@ export function EpisodePage({ episode }: Props) {
         </div>
         <div className="mx-auto mt-12 grid max-w-6xl gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-ri-blue">Temporada 1 · Capítulo {episode.number}</p>
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-ri-blue">Temporada {episode.season} · Capítulo {episode.number}</p>
             <h1 className="mt-5 max-w-5xl font-serif text-5xl leading-[0.95] md:text-7xl">{episode.title}</h1>
             <p className="mt-6 max-w-4xl text-xl font-bold leading-8 text-ri-blue md:text-2xl">{episode.subtitle}</p>
             <section className="mt-10" aria-labelledby="episode-description">
@@ -31,18 +31,12 @@ export function EpisodePage({ episode }: Props) {
           <aside className="rounded-[2rem] bg-ri-mist p-6 md:p-8">
             <p className="text-sm font-black uppercase tracking-[0.28em] text-ri-red">La idea central</p>
             <p className="mt-4 text-xl font-bold leading-8 text-ri-ink">{episode.idea}</p>
-            <div className="mt-8 border-t border-ri-ink/10 pt-6">
-              <p className="text-sm font-black uppercase tracking-[0.28em] text-ri-blue">Participa en la conversación</p>
-              <p className="mt-3 text-base leading-7 text-ri-ink/70">{episode.guest}</p>
-              <a
-                href={episode.embed}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-6 inline-flex rounded-full bg-ri-ink px-5 py-3 text-sm font-black text-white transition hover:-translate-y-1 hover:bg-ri-blue"
-              >
-                Abrir en YouTube
-              </a>
-            </div>
+            {episode.guest ? (
+              <div className="mt-8 border-t border-ri-ink/10 pt-6">
+                <p className="text-sm font-black uppercase tracking-[0.28em] text-ri-blue">Participa en la conversación</p>
+                <p className="mt-3 text-base leading-7 text-ri-ink/70">{episode.guest}</p>
+              </div>
+            ) : null}
           </aside>
         </div>
       </article>

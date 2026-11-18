@@ -1,7 +1,7 @@
 import type { Episode } from "./episodes";
 import { episodePath } from "./episodes";
 import { episodeThumbnails, media } from "../data/media";
-import { youtubeId } from "./youtube";
+import { youtubeId, youtubeThumbnail } from "./youtube";
 
 export type PageSeo = {
   title: string;
@@ -74,18 +74,18 @@ function episodeDescription(episode: Episode) {
 
 export function episodeSeo(episode: Episode): PageSeo {
   const id = youtubeId(episode.embed);
-  const image = new URL(episodeThumbnails[id] || media.videoPoster.src, siteUrl).href;
+  const image = new URL(episodeThumbnails[id] || youtubeThumbnail(episode.embed), siteUrl).href;
   const canonical = `${siteUrl}${episodePath(episode.slug)}`;
   const description = episodeDescription(episode);
 
   return {
-    title: `SQH | Capítulo ${episode.number}: ${episode.title}`,
+    title: `SQH | Temporada ${episode.season}, capítulo ${Number(episode.number)}: ${episode.title}`,
     description,
     canonical,
     robots: "index,follow",
     ogType: "article",
     image,
-    imageAlt: `SQH, capítulo ${episode.number}: ${episode.title}`,
+    imageAlt: `SQH, temporada ${episode.season}, capítulo ${episode.number}: ${episode.title}`,
     structuredData: {
       "@context": "https://schema.org",
       "@graph": [
