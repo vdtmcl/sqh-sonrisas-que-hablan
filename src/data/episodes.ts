@@ -1,14 +1,14 @@
 export const episodes = [
   {
     season: 2,
-    number: "07",
+    number: "01",
     slug: "proveedores-de-excelencia",
     title: "Proveedores de excelencia",
     subtitle: "Una conversación sobre el valor de contar con proveedores que acompañan, resuelven y aportan confianza al trabajo de los equipos de salud.",
     description:
       "El capítulo aborda el papel de los proveedores que acompañan a los equipos de salud, resuelven sus necesidades y contribuyen a construir relaciones de confianza. La conversación presenta una mirada sobre la excelencia en la provisión de servicios para el trabajo clínico.",
     idea: "Un proveedor de excelencia acompaña, resuelve y contribuye a generar confianza en los equipos de salud.",
-    guest: undefined,
+    guest: "Fabiola Terraza, gerente general de 3Dental y directora de MegaGen Chile.",
     embed: "https://youtu.be/rEq6SwzHD1Q?si=k1wKAhAnmEsUHHE4"
   },
   {

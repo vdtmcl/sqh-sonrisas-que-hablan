@@ -3,10 +3,11 @@ import { SEOHead } from "../components/seo/SEOHead";
 import { previewSeo } from "../lib/seo";
 import { episodes } from "../data/episodes";
 import { Button } from "../components/ui/Button";
+import { Footer } from "../components/layout/Footer";
 
 export function Preview() {
   return (
-      <main className="min-h-screen bg-white px-5 py-12 lg:px-8">
+      <><main className="min-h-screen bg-white px-5 py-12 lg:px-8">
         <SEOHead seo={previewSeo} />
       <div className="mx-auto max-w-5xl">
         <Link to="/" className="text-sm font-bold text-ri-blue">Volver al sitio</Link>
@@ -26,6 +27,6 @@ export function Preview() {
           ))}
         </div>
       </div>
-    </main>
+    </main><Footer /></>
   );
 }

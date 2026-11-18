@@ -1,3 +1,4 @@
+import { seasonTwoArticle } from "./seasonTwoArticle";
 export type ArticleBlock = { type: "heading" | "question" | "paragraph" | "list"; text: string } | { type: "table"; rows: string[][] };
 export type Article = { title: string; metaTitle: string; description: string; blocks: ArticleBlock[] };
 export const articles: Record<string, Article> = {
@@ -1160,3 +1161,5 @@ export const articles: Record<string, Article> = {
     ]
   }
 };
+
+articles["proveedores-de-excelencia"] = seasonTwoArticle;

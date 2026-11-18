@@ -1,11 +1,10 @@
-import { AudioLines, BrainCircuit, ChevronDown, Map, Mic2, Network, Radio, Stethoscope } from "lucide-react";
+import { AudioLines, BrainCircuit, ChevronDown, Map, Mic2, Network, Stethoscope } from "lucide-react";
 import { useState } from "react";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
 import { Button } from "../components/ui/Button";
 import { ResponsiveImage } from "../components/media/ResponsiveImage";
 import { YouTubePreview } from "../components/media/YouTubePreview";
-import { ContactForm } from "../components/forms/ContactForm";
 import { MapSection } from "../components/sections/MapSection";
 import { SEOHead } from "../components/seo/SEOHead";
 import { episodeThumbnails, media, mediaAssets } from "../data/media";
@@ -25,7 +24,6 @@ export function Home() {
       <Max />
       <PodcastFaq />
       <MapSection />
-      <Contact />
       <Footer />
     </main>
   );
@@ -296,26 +294,6 @@ function Max() {
             </ul>
             <p>El Dr. Max Lizana conduce SQH desde la práctica clínica real: implantología, rehabilitación oral y tecnología aplicada a casos complejos; ordena la conversación, conecta criterios y abre preguntas útiles para profesionales y audiencias interesadas en salud.</p>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Contact() {
-  return (
-    <section id="contacto" className="section bg-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
-        <div className="reveal min-w-0">
-          <p className="text-sm font-black uppercase tracking-[0.3em] text-ri-red">Contacto</p>
-          <h2 className="mt-5 break-words font-serif text-5xl leading-[0.95] [overflow-wrap:anywhere] md:text-5xl lg:text-6xl">Salud, tecnología y conversaciones que importan</h2>
-          <p className="mt-6 text-xl leading-9 text-ri-ink/70">Propón invitados, coordina participaciones o solicita información sobre el formato SQH.</p>
-          <div className="mt-8 flex gap-4 text-ri-blue">
-            <Radio /><Network /><Mic2 /><AudioLines />
-          </div>
-        </div>
-        <div className="reveal min-w-0 rounded-[2rem] border border-ri-ink/10 bg-ri-mist p-5 md:p-8">
-          <ContactForm />
         </div>
       </div>
     </section>
