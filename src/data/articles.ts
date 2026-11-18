@@ -900,7 +900,7 @@ export const articles: Record<string, Article> = {
       },
       {
         "type": "paragraph",
-        "text": "En el ámbito académico, ha ejercido docencia de pregrado en la Universidad de Playa Ancha, la Universidad Viña del Mar y proyecta colaboración en la Universidad Andrés Bello. Además, junto a dos colegas lidera la empresa de formación y capacitación continua Kitme (kitme.cl), impartiendo cursos de ecografía clínica y punción seca en diversas ciudades de Chile (Viña del Mar, Temuco, Coquimbo, Talca y Santiago), conduce el podcast Lo que callamos los kines y divulga contenido clínico en Instagram a través de @kine.mariopaez."
+        "text": "En el ámbito académico, ha ejercido docencia de pregrado en la Universidad de Playa Ancha, la Universidad Viña del Mar y proyecta colaboración en la Universidad Andrés Bello. Además, junto a dos colegas lidera la empresa de formación y capacitación continua KINME (kitme.cl), impartiendo cursos de ecografía clínica y punción seca en diversas ciudades de Chile (Viña del Mar, Temuco, Coquimbo, Talca y Santiago), conduce el podcast Lo que callamos los kines y divulga contenido clínico en Instagram a través de @kine.mariopaez."
       },
       {
         "type": "heading",
