@@ -1,8 +1,8 @@
 export const siteContent = {
   hero: {
-    eyebrow: "Podcast de salud y tecnología aplicada",
-    title: "SQH | Sonrisas que Hablan",
-    lead: "Conversaciones de alto nivel sobre salud, criterio clínico y tecnología aplicada, conducidas por Dr. Max Lizana desde Viña del Mar.",
+    eyebrow: "Podcast de odontología y salud oral",
+    title: "SQH Podcast de odontología",
+    lead: "Conversaciones sobre odontología, salud oral e implantología con tecnología aplicada, conducidas por el Dr. Max Lizana desde Viña del Mar.",
     body:
       "SQH reúne a profesionales, especialistas y líderes del ecosistema sanitario para conversar con profundidad sobre los cambios que están transformando la salud: desde la experiencia del paciente hasta la innovación clínica, la tecnología digital y la colaboración entre disciplinas.",
     signature:

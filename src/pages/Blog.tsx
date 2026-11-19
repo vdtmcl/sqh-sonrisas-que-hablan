@@ -24,11 +24,11 @@ export function Blog() {
         <div className="mx-auto max-w-[92rem] px-5 lg:px-10">
           <div className="reveal max-w-4xl">
             <p className="text-xs font-black uppercase tracking-[0.3em] text-ri-blue md:text-sm">
-              Entrevistas y notas
+              Entrevistas y notas de salud oral
             </p>
-            <h1 className="mt-4 font-serif text-5xl leading-none md:text-7xl">Blog de SQH</h1>
+            <h1 className="mt-4 font-serif text-5xl leading-none md:text-7xl">Blog SQH: odontología y salud oral</h1>
             <p className="mt-5 max-w-3xl text-base font-bold leading-7 text-ri-ink/70 md:text-xl md:leading-8">
-              Cada entrada reúne la entrevista en video y los contenidos escritos de su episodio. Conoce las ideas y experiencias compartidas por cada invitado.
+              Lee las notas de SQH Podcast sobre odontología, salud oral, implantología, ortodoncia, kinesiología y tecnología aplicada, basadas en entrevistas con especialistas.
             </p>
           </div>
 

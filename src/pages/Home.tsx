@@ -37,10 +37,10 @@ function Hero() {
         <div className="relative z-10 reveal">
           <p className="mt-6 text-xs font-black uppercase tracking-[0.28em] text-ri-blue md:text-sm">{siteContent.hero.eyebrow}</p>
           <h1 className="mt-4 max-w-3xl font-sans text-[clamp(3.2rem,5.6vw,6rem)] font-semibold leading-[0.98] tracking-[-0.045em]">
-            SQH Podcast
+            SQH Podcast de odontología
           </h1>
           <p className="mt-5 max-w-2xl text-xl font-semibold leading-snug text-ri-ink/85 md:text-2xl">
-            Conversaciones sobre salud, y tecnología aplicada, conducidas por el{" "}
+            Conversaciones sobre salud oral, implantología y tecnología aplicada, con especialistas de distintas áreas. Conduce el{" "}
             <a
               href="#max"
               className="font-black bg-[linear-gradient(90deg,#FF5F66,#174EFF)] bg-clip-text text-transparent transition hover:opacity-75"
