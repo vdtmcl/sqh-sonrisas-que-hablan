@@ -20,7 +20,7 @@
 
 **Repositorio, rama y despliegue:** vdtmcl/sqh-sonrisas-que-hablan; main d79c49a al revisar; README indica Cloudflare Pages. PR #16 abierto hacia main. Producción permanece sin cambios.
 
-## Cierre de sesión: 19 de noviembre de 2026, 07:33 (America/Santiago)
+## Cierre de sesión: 19 de noviembre de 2026, 07:35 (America/Santiago)
 
 **Estado verificado:** PR #16 continúa abierto, no fusionado y listo para revisión. Cloudflare Pages confirmó una implementación de vista previa exitosa para la rama fix/sqh-video-upload-datetime, commit 1fe6fe323089325d922733a9050015d7f5a8daba. La compilación de Cloudflare usó npm run build y generó las páginas HTML de los siete episodios. Vista previa: https://662f5425.sqh-sonrisas-que-hablan.pages.dev; alias de la rama: https://fix-sqh-video-upload-datetim.sqh-sonrisas-que-hablan.pages.dev. Es una vista previa; no es sqh.cl ni producción. main sigue en d79c49a y producción no se ha modificado.
 
