@@ -8,13 +8,13 @@ export const relatedEpisodes: Record<string, string[]> = {
   "proveedores-de-excelencia": ["dientes-fijos-en-48-horas", "regeneracion-osea-guiada", "ortodoncia-en-adultos"]
 };
 
-// Fechas de publicación de los episodios indicadas en las fichas proporcionadas.
+// Fechas y horas exactas de publicación tomadas del metadato uploadDate de YouTube (ISO 8601).
 export const episodeVideoDates: Record<string, string> = {
-  "periodontitis-y-encias": "2026-03-23",
-  "regeneracion-osea-guiada": "2026-03-31",
-  "blanqueamiento-y-salud-dental": "2026-03-04",
-  "dientes-fijos-en-48-horas": "2026-05-03",
-  "kinesiologia-y-odontologia": "2026-07-12",
-  "ortodoncia-en-adultos": "2026-02-20",
-  "proveedores-de-excelencia": "2026-11-16"
+  "periodontitis-y-encias": "2026-03-23T09:56:12-07:00",
+  "regeneracion-osea-guiada": "2026-03-31T09:40:16-07:00",
+  "blanqueamiento-y-salud-dental": "2026-03-04T07:38:58-08:00",
+  "dientes-fijos-en-48-horas": "2026-05-02T17:07:21-07:00",
+  "kinesiologia-y-odontologia": "2026-07-12T12:52:09-07:00",
+  "ortodoncia-en-adultos": "2026-02-20T14:13:48-08:00",
+  "proveedores-de-excelencia": "2026-11-16T10:43:19-08:00"
 };
