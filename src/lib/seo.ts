@@ -21,10 +21,10 @@ const siteName = "SQH | Sonrisas que Hablan";
 const hostUrl = `${siteUrl}/#max`;
 
 const homeDescription =
-  "Podcast conducido por Max Lizana, implantólogo y fundador de Red Implantología en Viña del Mar, sobre salud, tecnología aplicada y criterio clínico.";
+  "SQH es un podcast de odontología, salud oral y tecnología aplicada. Conducido por el Dr. Max Lizana en Viña del Mar, Chile, reúne a especialistas.";
 
 export const homeSeo: PageSeo = {
-  title: "SQH | Sonrisas que Hablan — Podcast sobre salud y tecnología",
+  title: "SQH Podcast | Odontología, salud oral y tecnología aplicada",
   description: homeDescription,
   canonical: `${siteUrl}/`,
   robots: "index,follow",
@@ -49,6 +49,12 @@ export const homeSeo: PageSeo = {
         name: "SQH | Sonrisas que Hablan",
         description: homeDescription,
         inLanguage: "es-CL",
+        about: [
+          { "@type": "Thing", name: "Odontología" },
+          { "@type": "Thing", name: "Salud oral" },
+          { "@type": "Thing", name: "Implantología" },
+          { "@type": "Thing", name: "Tecnología aplicada a la salud" }
+        ],
         creator: { "@id": hostUrl },
         image: `${siteUrl}/og-sqh-podcast.png`
       },
@@ -130,9 +136,9 @@ export function episodeSeo(episode: Episode): PageSeo {
 }
 
 export const blogSeo: PageSeo = {
-  title: "Blog de SQH | Sonrisas que Hablan",
+  title: "Blog SQH | Entrevistas de odontología y salud oral",
   description:
-    "Blog de SQH Podcast con notas vinculadas a sus entrevistas sobre salud, tecnología aplicada y colaboración interdisciplinaria.",
+    "Notas de SQH Podcast sobre odontología, salud oral, implantología y tecnología aplicada, basadas en conversaciones con especialistas de distintas áreas.",
   canonical: `${siteUrl}/blog`,
   robots: "index,follow",
   ogType: "website",
@@ -143,10 +149,16 @@ export const blogSeo: PageSeo = {
     "@type": "CollectionPage",
     "@id": `${siteUrl}/blog#collection`,
     url: `${siteUrl}/blog`,
-    name: "Blog de SQH | Sonrisas que Hablan",
+    name: "Blog SQH | Entrevistas de odontología y salud oral",
     description:
-      "Notas vinculadas a las entrevistas de SQH Podcast sobre salud, tecnología aplicada y colaboración interdisciplinaria.",
+      "Notas de SQH Podcast sobre odontología, salud oral, implantología y tecnología aplicada, basadas en conversaciones con especialistas de distintas áreas.",
     inLanguage: "es-CL",
+    about: [
+      { "@type": "Thing", name: "Odontología" },
+      { "@type": "Thing", name: "Salud oral" },
+      { "@type": "Thing", name: "Implantología" },
+      { "@type": "Thing", name: "Tecnología aplicada a la salud" }
+    ],
     isPartOf: { "@id": `${siteUrl}/#website` }
   }
 };
